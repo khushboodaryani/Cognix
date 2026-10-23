@@ -1,16 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowUpRight, ArrowRight, Play, Sparkles, Activity, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { scrollToSection } from "@/utils/scroll";
 
 interface HeroProps {
   onOpenBooking: () => void;
 }
 
 export default function Hero({ onOpenBooking }: HeroProps) {
-  const [activeTelemetryTab, setActiveTelemetryTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
 
-  const tabs = ["Dashboard UI", "AI Pipeline", "Mobile UPI"];
+  const tabs = ["Website", "AI Assistant", "Automation"];
 
   return (
     <section
@@ -51,7 +52,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             }}
           >
             <span className="pulse-dot" />
-            <span>WEBSITES · APPS · AI SOLUTIONS · AUTOMATION</span>
+            <span>WEBSITES · APPS · AI · AUTOMATION</span>
           </div>
         </div>
 
@@ -67,7 +68,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             color: "var(--text-heading)",
           }}
         >
-          We’ve already made the mistakes. You get{" "}
+          Smart tech that works{" "}
           <span
             style={{
               display: "inline-block",
@@ -79,7 +80,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
               boxShadow: "0 4px 14px rgba(199, 243, 107, 0.35)",
             }}
           >
-            the results.
+            while you sleep.
           </span>
         </h1>
 
@@ -93,8 +94,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             color: "var(--text-body)",
           }}
         >
-          We design and build digital products that cut busywork and help your business grow.
-          Smart tech that works while you sleep.
+          We design and build websites, apps and AI automations for growing businesses. Clear pricing, weekly progress, no tech jargon.
         </p>
 
         {/* CTAs */}
@@ -105,51 +105,83 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             justifyContent: "center",
             gap: "14px",
             flexWrap: "wrap",
-            marginBottom: "50px",
+            marginBottom: "32px",
           }}
         >
-          <button
-            onClick={onOpenBooking}
-            type="button"
-            className="btn-primary"
-            style={{ padding: "13px 28px", fontSize: "1rem" }}
-          >
-            <span>Start a project</span>
-            <ArrowRight size={18} strokeWidth={2.5} />
-          </button>
-
           <a
-            href="#work"
+            href="https://wa.me/916396880866?text=Hi%20Cognixs!%20I%20would%20like%20to%20schedule%20a%20free%2020-min%20consultation%20call%20regarding%20my%20project."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+            style={{
+              padding: "13px 28px",
+              fontSize: "1rem",
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <span>Book a free call</span>
+            <ArrowRight size={18} strokeWidth={2.5} />
+          </a>
+
+          <button
+            type="button"
+            onClick={() => scrollToSection("work")}
             className="btn-secondary"
-            style={{ padding: "13px 26px", fontSize: "1rem" }}
+            style={{
+              padding: "13px 26px",
+              fontSize: "1rem",
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              cursor: "pointer",
+            }}
           >
             <span>See our work</span>
-          </a>
+          </button>
         </div>
 
-        {/* Telemetry Status Chip */}
+        {/* Trust Badges Strip */}
         <div
           style={{
             display: "inline-flex",
             alignItems: "center",
-            gap: "10px",
-            padding: "6px 14px",
+            justifyContent: "center",
+            gap: "14px",
+            padding: "8px 18px",
             borderRadius: "9999px",
             backgroundColor: "var(--bg-card)",
             border: "1px solid var(--border-subtle)",
             fontSize: "0.8125rem",
-            color: "var(--text-muted)",
+            color: "var(--text-body)",
             marginBottom: "44px",
-            fontFamily: "var(--font-mono)",
+            flexWrap: "wrap",
+            boxShadow: "var(--shadow-sm)",
           }}
         >
-          <Activity size={14} style={{ color: "#22C55E" }} />
-          <span>Live Ops: <strong style={{ color: "var(--text-heading)" }}>99.4% automated uptime</strong></span>
-          <span style={{ opacity: 0.3 }}>|</span>
-          <span><strong style={{ color: "var(--text-heading)" }}>+42 hrs/mo</strong> saved per client</span>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <CheckCircle2 size={15} strokeWidth={2.5} style={{ color: "#84CC16" }} />
+            <span style={{ fontWeight: 500, color: "var(--text-heading)" }}>Free 20-min call</span>
+          </div>
+
+          <span style={{ opacity: 0.3, color: "var(--text-muted)" }}>·</span>
+
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <CheckCircle2 size={15} strokeWidth={2.5} style={{ color: "#84CC16" }} />
+            <span style={{ fontWeight: 500, color: "var(--text-heading)" }}>Clear fixed quote</span>
+          </div>
+
+          <span style={{ opacity: 0.3, color: "var(--text-muted)" }}>·</span>
+
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <CheckCircle2 size={15} strokeWidth={2.5} style={{ color: "#84CC16" }} />
+            <span style={{ fontWeight: 500, color: "var(--text-heading)" }}>You own the code</span>
+          </div>
         </div>
 
-        {/* Fanned Multi-Device UI Mockups (Matching Screenshot 2) */}
+        {/* Fanned Multi-Device UI Mockups */}
         <div
           style={{
             position: "relative",
@@ -233,23 +265,23 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 padding: "10px",
               }}
             >
-              <div style={{ fontSize: "0.65rem", color: "var(--text-muted)" }}>Razorpay UPI</div>
-              <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--text-heading)" }}>
-                ₹ 42,850.00
+              <div style={{ fontSize: "0.65rem", color: "var(--text-muted)" }}>New order</div>
+              <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--text-heading)", marginTop: "2px" }}>
+                Payment received
               </div>
               <div
                 style={{
                   display: "inline-block",
-                  padding: "2px 6px",
+                  padding: "2px 8px",
                   borderRadius: "9999px",
                   background: "var(--accent-primary)",
                   color: "#101311",
-                  fontSize: "0.6rem",
+                  fontSize: "0.65rem",
                   fontWeight: 700,
-                  marginTop: "4px",
+                  marginTop: "6px",
                 }}
               >
-                Instant Payout
+                UPI
               </div>
             </div>
             <div
@@ -257,11 +289,13 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 backgroundColor: "var(--bg-card-subtle)",
                 border: "1px dashed var(--border-strong)",
                 borderRadius: "12px",
-                padding: "8px",
-                fontSize: "0.7rem",
+                padding: "10px",
+                fontSize: "0.72rem",
+                color: "var(--text-body)",
+                lineHeight: 1.4,
               }}
             >
-              WhatsApp Bot: Order #892 dispatched via Dunzo
+              WhatsApp: Your order is confirmed ✓
             </div>
           </div>
 
@@ -300,7 +334,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     color: "var(--text-muted)",
                   }}
                 >
-                  cognixs.in/console/preview
+                  cognixs.in/demo
                 </span>
               </div>
 
@@ -332,13 +366,17 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   alignItems: "baseline",
                   justifyContent: "space-between",
                   marginBottom: "16px",
+                  flexWrap: "wrap",
+                  gap: "10px",
                 }}
               >
                 <div>
                   <div style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-muted)", fontWeight: 600 }}>
-                    Client Platform
+                    EXAMPLE DASHBOARD
                   </div>
-                  <h3 style={{ fontSize: "1.45rem", fontWeight: 700 }}>[Project Name]</h3>
+                  <h3 style={{ fontSize: "1.45rem", fontWeight: 700, color: "var(--text-heading)", marginTop: "2px" }}>
+                    Your business, on autopilot
+                  </h3>
                 </div>
 
                 <div style={{ display: "flex", gap: "8px" }}>
@@ -346,7 +384,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     <button
                       key={tab}
                       type="button"
-                      onClick={() => setActiveTelemetryTab(idx)}
+                      onClick={() => setActiveTab(idx)}
                       style={{
                         padding: "6px 12px",
                         borderRadius: "9999px",
@@ -354,9 +392,9 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                         fontFamily: "var(--font-display)",
                         fontWeight: 600,
                         cursor: "pointer",
-                        border: activeTelemetryTab === idx ? "1px solid #101311" : "1px solid var(--border-subtle)",
-                        background: activeTelemetryTab === idx ? "var(--accent-primary)" : "var(--bg-inset)",
-                        color: activeTelemetryTab === idx ? "#101311" : "var(--text-muted)",
+                        border: activeTab === idx ? "1px solid #101311" : "1px solid var(--border-subtle)",
+                        background: activeTab === idx ? "var(--accent-primary)" : "var(--bg-inset)",
+                        color: activeTab === idx ? "#101311" : "var(--text-muted)",
                         transition: "all 0.15s ease",
                       }}
                     >
@@ -366,7 +404,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 </div>
               </div>
 
-              {/* Wireframe blocks matching screenshot 2 */}
+              {/* Wireframe blocks */}
               <div
                 style={{
                   display: "grid",
@@ -375,6 +413,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   marginBottom: "20px",
                 }}
               >
+                {/* Card 1 */}
                 <div
                   style={{
                     backgroundColor: "var(--bg-inset)",
@@ -384,35 +423,37 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   }}
                 >
                   <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "4px" }}>
-                    Avg Response Latency
+                    New enquiries
                   </div>
-                  <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-heading)", fontFamily: "var(--font-mono)" }}>
-                    142 ms
-                  </div>
-                  <div style={{ fontSize: "0.75rem", color: "#16A34A", display: "flex", alignItems: "center", gap: "4px", marginTop: "4px" }}>
-                    <CheckCircle2 size={12} /> 99.98% SLA Guaranteed
-                  </div>
-                </div>
-
-                <div
-                  style={{
-                    backgroundColor: "var(--bg-inset)",
-                    borderRadius: "14px",
-                    padding: "16px",
-                    border: "1px solid var(--border-subtle)",
-                  }}
-                >
-                  <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "4px" }}>
-                    Automated Ingestion
-                  </div>
-                  <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-heading)", fontFamily: "var(--font-mono)" }}>
-                    12,840 / mo
+                  <div style={{ fontSize: "1.4rem", fontWeight: 700, color: "var(--text-heading)" }}>
+                    Auto-captured
                   </div>
                   <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "4px" }}>
-                    WhatsApp + Tally Sync
+                    Website + WhatsApp
                   </div>
                 </div>
 
+                {/* Card 2 */}
+                <div
+                  style={{
+                    backgroundColor: "var(--bg-inset)",
+                    borderRadius: "14px",
+                    padding: "16px",
+                    border: "1px solid var(--border-subtle)",
+                  }}
+                >
+                  <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "4px" }}>
+                    WhatsApp replies
+                  </div>
+                  <div style={{ fontSize: "1.4rem", fontWeight: 700, color: "var(--text-heading)" }}>
+                    Instant
+                  </div>
+                  <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "4px" }}>
+                    AI assistant, 24/7
+                  </div>
+                </div>
+
+                {/* Card 3 (lime card) */}
                 <div
                   style={{
                     backgroundColor: "var(--accent-primary)",
@@ -425,13 +466,13 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   }}
                 >
                   <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
-                    Autonomous Execution
+                    INVOICES
                   </div>
                   <div style={{ fontSize: "1.2rem", fontWeight: 800 }}>
-                    Zero Manual Drag
+                    Auto-generated
                   </div>
                   <div style={{ fontSize: "0.75rem", opacity: 0.85 }}>
-                    Engineered by Cognixs
+                    Synced to Tally
                   </div>
                 </div>
               </div>
@@ -446,8 +487,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "0.75rem", color: "var(--text-muted)" }}>
-                  <span>SYSTEM THROUGHPUT & SPRINT TRAJECTORY</span>
-                  <span style={{ fontFamily: "var(--font-mono)", color: "var(--text-heading)" }}>+320% Velocity</span>
+                  <span>WEEKLY PROGRESS</span>
                 </div>
                 <svg
                   viewBox="0 0 500 80"
@@ -487,8 +527,8 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   color: "var(--text-muted)",
                 }}
               >
-                <span>Stack: Next.js 15 · TypeScript · WhatsApp Cloud · PostgreSQL</span>
-                <span style={{ color: "var(--text-heading)", fontWeight: 600 }}>Delivery: Sprint Week 2</span>
+                <span>Built with Next.js · React Native · WhatsApp API</span>
+                <span style={{ color: "var(--text-heading)", fontWeight: 600 }}>Weekly updates</span>
               </div>
             </div>
           </div>

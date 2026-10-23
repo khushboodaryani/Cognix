@@ -5,6 +5,7 @@ import Link from "next/link";
 import CognixsLogo from "./CognixsLogo";
 import ThemeToggle from "./ThemeToggle";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { scrollToSection } from "@/utils/scroll";
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -23,13 +24,19 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { label: "Services", href: "#services" },
-    { label: "Industries", href: "#industries" },
-    { label: "Work", href: "#work" },
-    { label: "Process", href: "#process" },
-    { label: "Compare", href: "#comparison" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Services", targetId: "services" },
+    { label: "Industries", targetId: "industries" },
+    { label: "Work", targetId: "work" },
+    { label: "Process", targetId: "process" },
+    { label: "Compare", targetId: "comparison" },
+    { label: "Team", targetId: "team" },
+    { label: "FAQ", targetId: "faq" },
   ];
+
+  const handleNavClick = (targetId: string) => {
+    setMobileMenuOpen(false);
+    scrollToSection(targetId);
+  };
 
   return (
     <header
@@ -74,22 +81,26 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           className="desktop-nav-links"
         >
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.label}
-              href={link.href}
+              type="button"
+              onClick={() => handleNavClick(link.targetId)}
               style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "4px 2px",
                 fontFamily: "var(--font-display)",
                 fontSize: "0.875rem",
                 fontWeight: 500,
                 color: "var(--text-heading)",
-                textDecoration: "none",
                 transition: "color 0.15s ease",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#4D7C0F")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-heading)")}
             >
               {link.label}
-            </a>
+            </button>
           ))}
         </nav>
 
@@ -97,9 +108,10 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <ThemeToggle />
 
-          <button
-            onClick={onOpenBooking}
-            type="button"
+          <a
+            href="https://wa.me/916396880866?text=Hi%20Cognixs!%20I%20want%20to%20start%20a%20new%20project%20(Website%20/%20App%20/%20AI%20Automation).%20Let's%20discuss%20requirements%20and%20timeline."
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-dark"
             style={{
               padding: "9px 18px",
@@ -108,11 +120,12 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               display: "inline-flex",
               alignItems: "center",
               gap: "6px",
+              textDecoration: "none",
             }}
           >
             <span>Start a project</span>
             <ArrowUpRight size={15} style={{ color: "var(--accent-primary)" }} />
-          </button>
+          </a>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -155,11 +168,15 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           }}
         >
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.label}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              type="button"
+              onClick={() => handleNavClick(link.targetId)}
               style={{
+                background: "none",
+                border: "none",
+                textAlign: "left",
+                cursor: "pointer",
                 fontFamily: "var(--font-display)",
                 fontSize: "1rem",
                 fontWeight: 600,
@@ -169,19 +186,27 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               }}
             >
               {link.label}
-            </a>
+            </button>
           ))}
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenBooking();
-            }}
-            type="button"
+          <a
+            href="https://wa.me/916396880866?text=Hi%20Cognixs!%20I%20want%20to%20start%20a%20new%20project%20(Website%20/%20App%20/%20AI%20Automation).%20Let's%20discuss%20requirements%20and%20timeline."
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
             className="btn-primary"
-            style={{ width: "100%", marginTop: "8px" }}
+            style={{
+              width: "100%",
+              marginTop: "8px",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "6px",
+              textDecoration: "none",
+            }}
           >
-            Start a project <ArrowUpRight size={16} />
-          </button>
+            <span>Start a project</span>
+            <ArrowUpRight size={16} />
+          </a>
         </div>
       )}
 

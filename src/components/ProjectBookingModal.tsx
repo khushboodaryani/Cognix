@@ -43,7 +43,7 @@ export default function ProjectBookingModal({ isOpen, onClose }: ProjectBookingM
     const text = encodeURIComponent(
       `Hi Cognixs Team! I'm interested in scoping a project.\n\nName: ${name || "Founder"}\nService: ${selectedService}\nTimeline: ${timeline}\nNotes: ${notes || "Looking for consultation"}`
     );
-    window.open(`https://wa.me/919999999999?text=${text}`, "_blank");
+    window.open(`https://wa.me/916396880866?text=${text}`, "_blank");
   };
 
   return (
@@ -409,6 +409,31 @@ export default function ProjectBookingModal({ isOpen, onClose }: ProjectBookingM
                 >
                   <MessageSquare size={16} style={{ color: "#25D366" }} /> WhatsApp
                 </button>
+              </div>
+
+              {/* Privacy Policy Agreement */}
+              <div
+                style={{
+                  textAlign: "center",
+                  fontSize: "0.75rem",
+                  color: "var(--text-muted)",
+                  marginTop: "8px",
+                }}
+              >
+                By submitting, you agree to our{" "}
+                <a
+                  href="/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: "var(--text-heading)",
+                    textDecoration: "underline",
+                    textUnderlineOffset: "2px",
+                  }}
+                >
+                  Privacy Policy
+                </a>
+                .
               </div>
 
               <div

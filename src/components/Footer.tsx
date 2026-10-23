@@ -2,7 +2,8 @@
 
 import React from "react";
 import CognixsLogo from "./CognixsLogo";
-import { Mail, ArrowUpRight, MessageSquare, Phone } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { scrollToSection } from "@/utils/scroll";
 
 export default function Footer() {
   return (
@@ -11,8 +12,8 @@ export default function Footer() {
         position: "relative",
         backgroundColor: "var(--bg-card)",
         borderTop: "1px solid var(--border-subtle)",
-        paddingTop: "64px",
-        paddingBottom: "40px",
+        paddingTop: "68px",
+        paddingBottom: "16px",
         overflow: "hidden",
       }}
     >
@@ -21,59 +22,58 @@ export default function Footer() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1.4fr 1fr 1fr 1fr",
-            gap: "40px",
+            gridTemplateColumns: "1.3fr 1fr 1fr 0.9fr 0.9fr",
+            gap: "36px",
             marginBottom: "56px",
+            alignItems: "start",
           }}
           className="footer-grid"
         >
-          {/* Brand Info */}
+          {/* Brand Info & Inquiries */}
           <div>
-            <CognixsLogo size="md" className="mb-4" />
+            <CognixsLogo size="md" />
             <p
               style={{
                 fontSize: "0.875rem",
                 color: "var(--text-body)",
                 lineHeight: 1.6,
-                marginTop: "16px",
-                marginBottom: "20px",
-                maxWidth: "320px",
+                marginTop: "18px",
+                marginBottom: "24px",
+                maxWidth: "300px",
               }}
             >
-              High-velocity digital engineering & embedded technical co-founder for funded startups and ambitious enterprises.
+              High-velocity digital engineering, architectural precision, and brand strategy for category-defining technology ventures.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <div>
+              <div
+                style={{
+                  fontSize: "0.6875rem",
+                  fontFamily: "var(--font-mono)",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "var(--text-muted)",
+                  marginBottom: "8px",
+                }}
+              >
+                DIRECT INQUIRIES
+              </div>
               <a
                 href="mailto:hello@cognixs.in"
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  fontSize: "0.95rem",
-                  fontWeight: 700,
+                  fontSize: "1.0625rem",
+                  fontWeight: 600,
                   color: "var(--text-heading)",
-                  fontFamily: "var(--font-mono)",
+                  textDecoration: "underline",
+                  textUnderlineOffset: "4px",
+                  textDecorationThickness: "1.5px",
+                  transition: "opacity 0.2s ease",
+                  display: "inline-block",
                 }}
+                className="footer-email-link"
               >
-                <Mail size={16} style={{ color: "#84CC16" }} />
-                <span>hello@cognixs.in</span>
-              </a>
-
-              <a
-                href="https://wa.me/919999999999"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  fontSize: "0.875rem",
-                  color: "var(--text-muted)",
-                }}
-              >
-                <MessageSquare size={15} style={{ color: "#25D366" }} />
-                <span>+91 99999 99999 (Studio WhatsApp)</span>
+                hello@cognixs.in
               </a>
             </div>
           </div>
@@ -82,80 +82,198 @@ export default function Footer() {
           <div>
             <div
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-mono)",
                 fontWeight: 700,
-                fontSize: "0.8125rem",
+                fontSize: "0.75rem",
                 textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "var(--text-heading)",
-                marginBottom: "16px",
+                letterSpacing: "0.1em",
+                color: "var(--text-muted)",
+                marginBottom: "20px",
               }}
             >
               SERVICES
             </div>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px", fontSize: "0.875rem" }}>
-              <li><a href="#services" style={{ color: "var(--text-body)" }}>High-Velocity Websites</a></li>
-              <li><a href="#services" style={{ color: "var(--text-body)" }}>Cross-Platform Mobile Apps</a></li>
-              <li><a href="#services" style={{ color: "var(--text-body)" }}>Bespoke LLM & AI Agents</a></li>
-              <li><a href="#services" style={{ color: "var(--text-body)" }}>Zero-Manual Automations</a></li>
-              <li><a href="#services" style={{ color: "var(--text-body)" }}>Embedded Technical Co-Founder</a></li>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.875rem" }}>
+              <li>
+                <button type="button" onClick={() => scrollToSection("services")} className="footer-nav-link footer-btn-link">
+                  High-Velocity Websites
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => scrollToSection("services")} className="footer-nav-link footer-btn-link">
+                  Cross-Platform Mobile Apps
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => scrollToSection("services")} className="footer-nav-link footer-btn-link">
+                  Bespoke LLM &amp; AI Agents
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => scrollToSection("services")} className="footer-nav-link footer-btn-link">
+                  Zero-Manual Automations
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => scrollToSection("services")} className="footer-nav-link footer-btn-link">
+                  Embedded Technical Co-Founder
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Integrations Column */}
+          {/* Indian Stack Column */}
           <div>
             <div
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-mono)",
                 fontWeight: 700,
-                fontSize: "0.8125rem",
+                fontSize: "0.75rem",
                 textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "var(--text-heading)",
-                marginBottom: "16px",
+                letterSpacing: "0.1em",
+                color: "var(--text-muted)",
+                marginBottom: "20px",
               }}
             >
               INDIAN STACK
             </div>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px", fontSize: "0.875rem" }}>
-              <li><span style={{ color: "var(--text-body)" }}>Razorpay & UPI Deep-links</span></li>
-              <li><span style={{ color: "var(--text-body)" }}>WhatsApp Cloud API</span></li>
-              <li><span style={{ color: "var(--text-body)" }}>Tally Prime ERP Integration</span></li>
-              <li><span style={{ color: "var(--text-body)" }}>Zoho CRM & Books</span></li>
-              <li><span style={{ color: "var(--text-body)" }}>Shopify Plus Headless</span></li>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.875rem" }}>
+              <li>
+                <span className="footer-nav-item">
+                  Razorpay &amp; UPI Deep-links
+                </span>
+              </li>
+              <li>
+                <span className="footer-nav-item">
+                  WhatsApp Cloud API
+                </span>
+              </li>
+              <li>
+                <span className="footer-nav-item">
+                  Tally Prime ERP Integration
+                </span>
+              </li>
+              <li>
+                <span className="footer-nav-item">
+                  Zoho CRM &amp; Books
+                </span>
+              </li>
+              <li>
+                <span className="footer-nav-item">
+                  Shopify Plus Headless
+                </span>
+              </li>
             </ul>
           </div>
 
-          {/* Studio & Legal Column */}
+          {/* Studio Column */}
           <div>
             <div
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-mono)",
                 fontWeight: 700,
-                fontSize: "0.8125rem",
+                fontSize: "0.75rem",
                 textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "var(--text-heading)",
-                marginBottom: "16px",
+                letterSpacing: "0.1em",
+                color: "var(--text-muted)",
+                marginBottom: "20px",
               }}
             >
               STUDIO
             </div>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px", fontSize: "0.875rem" }}>
-              <li><a href="#work" style={{ color: "var(--text-body)" }}>Selected Work</a></li>
-              <li><a href="#process" style={{ color: "var(--text-body)" }}>Sprint Methodology</a></li>
-              <li><a href="#about" style={{ color: "var(--text-body)" }}>About Cognixs</a></li>
-              <li><span style={{ color: "var(--text-body)" }}>Bengaluru · Mumbai · Gurugram</span></li>
-              <li><span style={{ color: "#16A34A", fontWeight: 600 }}>● Sprints Open for Next Month</span></li>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.875rem" }}>
+              <li>
+                <button type="button" onClick={() => scrollToSection("work")} className="footer-nav-link footer-btn-link">
+                  Selected Work
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => scrollToSection("process")} className="footer-nav-link footer-btn-link">
+                  Sprint Methodology
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => scrollToSection("about")} className="footer-nav-link footer-btn-link">
+                  About Us
+                </button>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/916396880866?text=Hi%20Cognixs%20team%2C%20I%20would%20like%20to%20connect%20regarding%20a%20project."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-nav-link"
+                >
+                  Contact
+                </a>
+              </li>
+              <li>
+                <span style={{ color: "#16A34A", fontWeight: 600, fontSize: "0.8125rem", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "#16A34A" }} />
+                  Sprints Open
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Network Column */}
+          <div>
+            <div
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontWeight: 700,
+                fontSize: "0.75rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                color: "var(--text-muted)",
+                marginBottom: "20px",
+              }}
+            >
+              NETWORK
+            </div>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.875rem" }}>
+              <li>
+                <a
+                  href="tel:+916396880866"
+                  className="footer-network-link"
+                  title="Direct Call: +91 63968 80866"
+                >
+                  <span>+91 63968 80866</span>
+                  <ArrowUpRight size={14} className="network-arrow" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/cognixs.in/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-network-link"
+                >
+                  <span>Instagram</span>
+                  <ArrowUpRight size={14} className="network-arrow" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/cognixs"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-network-link"
+                >
+                  <span>X (Twitter)</span>
+                  <ArrowUpRight size={14} className="network-arrow" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar Divider & Meta Row */}
         <div
           style={{
             borderTop: "1px solid var(--border-subtle)",
             paddingTop: "24px",
+            paddingBottom: "32px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -165,46 +283,108 @@ export default function Footer() {
             color: "var(--text-muted)",
           }}
         >
-          <div>© 2026 Cognixs Studio (`cognixs.in`). All rights reserved.</div>
-          <div style={{ display: "flex", gap: "20px" }}>
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
-            <span>SLA Guarantee</span>
+          <div>© 2025 Cognixs Studio (cognixs.in). All rights reserved.</div>
+          <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+            <a href="/privacy" className="footer-legal-link">
+              Privacy Policy
+            </a>
+            <span style={{ opacity: 0.4 }}>•</span>
+            <a href="/terms" className="footer-legal-link">
+              Terms of Service
+            </a>
           </div>
+          <div>Crafted for high-velocity teams.</div>
         </div>
       </div>
 
-      {/* Giant Watermark "cognixs" Matching Bottom of Screenshot 3 */}
+      {/* Oversized Full-Width Wordmark Baseline */}
       <div
         style={{
-          position: "absolute",
-          bottom: "-40px",
-          left: "50%",
-          transform: "translateX(-50%)",
+          width: "100%",
+          textAlign: "center",
           fontFamily: "var(--font-display)",
           fontWeight: 800,
-          fontSize: "clamp(5rem, 16vw, 15rem)",
-          color: "var(--text-heading)",
-          opacity: 0.03,
+          fontSize: "clamp(4.5rem, 15vw, 12rem)",
+          lineHeight: 0.82,
           letterSpacing: "-0.05em",
-          pointerEvents: "none",
-          whiteSpace: "nowrap",
+          color: "var(--text-heading)",
+          opacity: 0.045,
           userSelect: "none",
-          zIndex: 1,
+          pointerEvents: "none",
+          overflow: "hidden",
+          marginTop: "8px",
+          marginBottom: "-12px",
         }}
+        aria-hidden="true"
       >
         cognixs
       </div>
 
       <style jsx>{`
-        @media (max-width: 860px) {
+        .footer-nav-link {
+          color: var(--text-heading);
+          text-decoration: none;
+          transition: color 0.15s ease;
+        }
+        .footer-btn-link {
+          background: none;
+          border: none;
+          padding: 0;
+          font: inherit;
+          text-align: left;
+          cursor: pointer;
+        }
+        .footer-nav-link:hover {
+          color: #84CC16;
+        }
+        .footer-nav-item {
+          color: var(--text-body);
+        }
+        .footer-email-link:hover {
+          opacity: 0.75;
+        }
+        .footer-legal-link {
+          color: var(--text-muted);
+          text-decoration: none;
+          transition: color 0.15s ease;
+        }
+        .footer-legal-link:hover {
+          color: var(--text-heading);
+          text-decoration: underline;
+        }
+        .footer-network-link {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          max-width: 175px;
+          white-space: nowrap;
+          color: var(--text-heading);
+          text-decoration: none;
+          transition: color 0.15s ease;
+        }
+        .footer-network-link :global(.network-arrow) {
+          color: var(--text-muted);
+          transition: transform 0.15s ease, color 0.15s ease;
+        }
+        .footer-network-link:hover {
+          color: #84CC16;
+        }
+        .footer-network-link:hover :global(.network-arrow) {
+          transform: translate(2px, -2px);
+          color: #84CC16;
+        }
+
+        @media (max-width: 1024px) {
           :global(.footer-grid) {
-            grid-template-columns: 1fr 1fr !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 36px !important;
           }
         }
-        @media (max-width: 520px) {
+        @media (max-width: 600px) {
           :global(.footer-grid) {
             grid-template-columns: 1fr !important;
+            gap: 32px !important;
           }
         }
       `}</style>

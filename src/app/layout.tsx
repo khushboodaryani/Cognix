@@ -1,27 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import FloatingSocials from "@/components/FloatingSocials";
 import "./globals.css";
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  display: "swap",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: [
@@ -36,11 +15,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://cognixs.in"),
   title: {
-    default: "Cognixs | Elite Digital Product & AI Automation Engineering Studio",
+    default: "Cognixs | Websites, Apps & AI Automation Studio in Delhi NCR",
     template: "%s | Cognixs",
   },
   description:
-    "Cognixs architects and deploys high-velocity digital experiences—custom web platforms, native mobile applications, bespoke LLM agents, and end-to-end business workflows. Smart tech that works while you sleep.",
+    "Cognixs designs and builds websites, mobile apps and AI automations for growing businesses in India. Clear pricing, weekly progress, no tech jargon.",
   keywords: [
     "Cognixs",
     "Digital Product Studio",
@@ -73,9 +52,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://cognixs.in",
     siteName: "Cognixs Studio",
-    title: "Cognixs | Smart Tech That Works While You Sleep",
+    title: "Cognixs | Websites, Apps & AI Automation Studio in Delhi NCR",
     description:
-      "We design and build digital products that cut busywork and help your business grow. Websites, Mobile Apps, Custom AI Solutions, and Enterprise Automations.",
+      "Cognixs designs and builds websites, mobile apps and AI automations for growing businesses in India. Clear pricing, weekly progress, no tech jargon.",
     images: [
       {
         url: "/assets/logo/logo-full-light.svg",
@@ -87,11 +66,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cognixs | Elite Digital Product & AI Automation Studio",
+    title: "Cognixs | Websites, Apps & AI Automation Studio in Delhi NCR",
     description:
-      "Smart tech that works while you sleep. We’ve already made the mistakes. You get the results.",
+      "Cognixs designs and builds websites, mobile apps and AI automations for growing businesses in India. Clear pricing, weekly progress, no tech jargon.",
     images: ["/assets/logo/logo-full-light.svg"],
-    creator: "@cognixs_in",
+    creator: "@cognixs",
   },
   alternates: {
     canonical: "https://cognixs.in",
@@ -152,11 +131,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
       data-theme="light"
       suppressHydrationWarning
     >
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -164,6 +152,7 @@ export default function RootLayout({
       </head>
       <body className="bg-grid-pattern">
         {children}
+        <FloatingSocials />
       </body>
     </html>
   );

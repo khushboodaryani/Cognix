@@ -9,7 +9,7 @@ interface FinalCtaProps {
 
 export default function FinalCta({ onOpenBooking }: FinalCtaProps) {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/919999999999?text=Hi%20Cognixs%20Team!%20I%20have%20an%20idea%20and%20would%20like%20to%20scope%20a%20project.", "_blank");
+    window.open("https://wa.me/916396880866?text=Hi%20Cognixs%20Team!%20I%20have%20an%20idea%20and%20would%20like%20to%20scope%20a%20project.", "_blank");
   };
 
   return (
@@ -101,18 +101,23 @@ export default function FinalCta({ onOpenBooking }: FinalCtaProps) {
                 marginBottom: "32px",
               }}
             >
-              <button
-                onClick={onOpenBooking}
-                type="button"
+              <a
+                href="https://wa.me/916396880866?text=Hi%20Cognixs!%20I%20would%20like%20to%20schedule%20a%20free%2020-min%20consultation%20call%20regarding%20my%20project."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary"
                 style={{
                   padding: "14px 32px",
                   fontSize: "1.05rem",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
                 }}
               >
                 <span>Book a free call</span>
                 <ArrowRight size={18} strokeWidth={2.5} />
-              </button>
+              </a>
 
               <button
                 onClick={handleWhatsApp}
