@@ -8,26 +8,26 @@ export default function ClientTestimonials() {
     {
       stars: 5,
       quote:
-        "“Cognixs operates like an elite founding engineering team, not an agency. In 3 weeks they transformed our fragmented logistics flow into an automated WhatsApp dispatch machine.”",
-      author: "Aditya Nair",
-      role: "Co-founder & COO",
-      company: "Omniflow Logistics",
+        "“Exceptional technical expertise and real attention to detail. The team operates with the discipline of elite founding engineers, turning complex requirements into clean, scalable software.”",
+      author: "Jayant Sharma",
+      role: "CEO",
+      company: "Wanderift",
     },
     {
       stars: 5,
       quote:
-        "“The team rebuilt our entire checkout & UPI flow in Next.js. Our mobile conversion went up by 280% on Day 1. Their attention to detail on latency and design polish is world-class.”",
-      author: "Pooja Singhal",
-      role: "VP of Product",
-      company: "Kensho Retail D2C",
+        "“Full-stack expertise paired with strong problem-solving. From high-throughput backend architecture to seamless client-side performance, their execution has been nothing short of exceptional.”",
+      author: "Vivek Sharma",
+      role: "CTO",
+      company: "TravelPartner",
     },
     {
       stars: 5,
       quote:
-        "“We were drowning in manual billing between WhatsApp orders and Tally. Cognixs integrated everything seamlessly. We haven’t had to touch manual data entry in 6 months.”",
-      author: "Sanjay Mehta",
-      role: "Managing Director",
-      company: "FinPulse NeoBank",
+        "“Innovative solutions and a genuinely collaborative approach. They architected our entire digital storefront with sub-second loading speed, multi-currency checkout, and a brand-first experience.”",
+      author: "Shambhav Tiwari",
+      role: "Founder",
+      company: "Katan Saree",
     },
   ];
 

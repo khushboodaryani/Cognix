@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArrowRight, CheckCircle2, TrendingUp, Sparkles, Activity } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2, Globe, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface DeepDiveProps {
   onOpenBooking: () => void;
@@ -9,67 +10,116 @@ interface DeepDiveProps {
 
 export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
   const [activeTab, setActiveTab] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
 
   const projects = [
     {
-      tabLabel: "Project 01",
-      client: "FinPulse NeoBank & UPI",
-      industry: "Fintech & Embedded Banking",
+      title: "OpenTreatment",
+      client: "OpenTreatment — Healthcare Platform",
+      industry: "Healthcare & Telemedicine Network",
       problem:
-        "Disparate legacy manual spreadsheets and slow payment verification cycles caused high transaction drop-off, reconciliation errors, and 3-day delays in merchant settlement.",
+        "Patients and clinical providers struggled with fragmented offline doctor scheduling, delayed lab report turnarounds, and unverified credentials causing 45-minute clinic queues and HIPAA compliance vulnerabilities.",
       engineered:
-        "Engineered an event-driven Next.js & Flutter payment platform with native Razorpay deep-linking, automated webhook ledgering, and sub-150ms verification latency.",
-      result: "3x faster fulfillment order cycle, zero manual latency",
-      stats: [
-        { label: "Uptime & Delivery", value: "99.98%" },
-        { label: "Manual Drag", value: "-45h / mo" },
-        { label: "Settlement Speed", value: "4x Faster" },
-      ],
-      sparklinePoints: "M0,50 Q60,45 120,30 T240,25 T360,10 T460,4",
-      gradientId: "grad01",
+        "Engineered an omnichannel healthcare network with Next.js web portal and high-performance React Native Android/iOS apps, real-time doctor availability engine, encrypted diagnostic report vault, and sub-1.4s clinical directory search.",
+      result: "15,000+ patient consultations delivered with 99.9% booking reliability",
+      image: "/assets/projects/opentreatment-health.png",
+      websiteUrl: "https://www.opentreatment.in/",
+      stack: ["Next.js", "React Native", "Tailwind CSS", "Node.js", "PostgreSQL"],
     },
     {
-      tabLabel: "Project 02",
-      client: "Omniflow Logistics",
-      industry: "Supply Chain & Last Mile",
+      title: "Ember Events",
+      client: "Ember Events — Event Management Website",
+      industry: "Experiential Event & Wedding Management",
       problem:
-        "Overwhelmed customer support team handling 2,400+ daily WhatsApp queries about delivery dispatch manually, leading to missed shipments and customer frustration.",
+        "Luxury event and wedding clients in Jaipur required an immersive visual showcase, high-resolution galleries, and dynamic inquiry forms without slowing down mobile performance.",
       engineered:
-        "Integrated Meta WhatsApp Cloud API with custom LLM triage agent, live Dunzo/Shiprocket webhook dispatch, and automated Tally GST e-invoice generation.",
-      result: "82% automated resolution rate, 12,000+ hours saved annually",
-      stats: [
-        { label: "Query Automation", value: "82.4%" },
-        { label: "Support Cost", value: "-64%" },
-        { label: "First Response", value: "< 1.2s" },
-      ],
-      sparklinePoints: "M0,60 Q70,40 140,45 T280,20 T380,12 T460,2",
-      gradientId: "grad02",
+        "Engineered a high-performance event platform using React, Tailwind CSS, EmailJS automated lead capture, and Framer Motion smooth micro-animations.",
+      result: "120+ curated celebrations showcased with sub-second asset loads and 4.9 CSAT",
+      image: "/assets/projects/ember-events-exact.png",
+      websiteUrl: "https://www.emberevents.in",
+      stack: ["React", "Tailwind CSS", "EmailJS", "Framer Motion", "Vercel"],
     },
     {
-      tabLabel: "Project 03",
-      client: "Kensho Retail D2C",
-      industry: "Fashion E-commerce",
+      title: "Katan Saree",
+      client: "Katan Saree — E-Commerce Website",
+      industry: "Handcrafted Luxury D2C E-Commerce",
       problem:
-        "Standard Shopify theme suffered from slow mobile LCP (> 4.8s) and poor conversion on mobile ad traffic from Meta & Instagram.",
+        "A luxury saree brand targeting global shoppers suffered from slow mobile LCP (> 4.8s) with heavy silk fabrics and high abandonment during multi-currency checkout.",
       engineered:
-        "Architected a headless Next.js App Router storefront with edge caching, 1-click Cashfree & UPI checkout, and automated inventory sync with Zoho Books.",
-      result: "3.8x mobile conversion jump, sub-second LCP globally",
-      stats: [
-        { label: "Lighthouse LCP", value: "0.8s" },
-        { label: "Mobile Conv.", value: "+280%" },
-        { label: "Cart Abandonment", value: "-38%" },
-      ],
-      sparklinePoints: "M0,55 Q80,50 160,28 T290,22 T390,8 T460,3",
-      gradientId: "grad03",
+        "Built a high-performance, scalable e-commerce site with Next.js, React, Redux state management, Tailwind CSS, and Stripe global multi-currency payments.",
+      result: "3.4x mobile conversion jump, sub-second LCP, and zero checkout failures",
+      image: "/assets/projects/katan-saree-exact.jpg",
+      websiteUrl: "https://katar-saree.vercel.app",
+      stack: ["React", "Redux", "Tailwind CSS", "Stripe", "Next.js", "Express"],
+    },
+    {
+      title: "Pick4U",
+      client: "Pick4U — Fast Reliable Local Deliveries",
+      industry: "Logistics & Intra-City On-Demand Delivery",
+      problem:
+        "Traditional intra-city courier logistics suffered from unpredictable pickup dispatch times, lack of real-time GPS tracking for delivery partners, and high cancellation rates during peak delivery windows.",
+      engineered:
+        "Engineered an on-demand hyperlocal delivery platform with real-time route calculation, live driver partner dispatch, transparent pricing tiers (same-hour, same-day, scheduled), and instant parcel booking.",
+      result: "10K+ happy customers and 5K+ successful deliveries completed in under 30 minutes average time",
+      image: "/assets/projects/pick4u-exact.png",
+      websiteUrl: "https://pick4u.vercel.app",
+      stack: ["Next.js", "React", "Tailwind CSS", "Node.js", "Express", "Vercel"],
+    },
+    {
+      title: "Music Ed-Tech",
+      client: "Music Ed-Tech — Learning Platform",
+      industry: "Interactive Audio Education & EdTech",
+      problem:
+        "Standard educational portals felt dry and clunky, failing to provide interactive music theory visualization, responsive audio playback, and fluid modern navigation.",
+      engineered:
+        "Designed and developed an interactive music ed-tech web application with Next.js, TypeScript, Aceternity UI components, and Tailwind CSS for seamless audio exploration.",
+      result: "Interactive student learning experience with 98/100 Lighthouse performance and 4.95 CSAT",
+      image: "/assets/projects/music-ed-tech-exact.png",
+      websiteUrl: "https://music-ed-tech-beryl.vercel.app",
+      stack: ["Next.js", "TypeScript", "Aceternity UI", "Tailwind CSS", "Figma"],
     },
   ];
+
+  // Auto-scroll / Auto-swipe timer (4.5s cadence, pauses on hover or user interaction)
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % projects.length);
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, [isPaused, projects.length]);
+
+  const goToNext = () => setActiveTab((prev) => (prev + 1) % projects.length);
+  const goToPrev = () => setActiveTab((prev) => (prev - 1 + projects.length) % projects.length);
+
+  // Mobile swipe gestures
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        goToNext();
+      } else {
+        goToPrev();
+      }
+    }
+    touchStartX.current = null;
+  };
 
   const current = projects[activeTab];
 
   return (
     <section id="work" className="section-padding" style={{ position: "relative" }}>
       <div className="container-custom">
-        {/* Section Header */}
+        {/* Section Header with Sleek Auto-Scroll Controls (Replaces navbar-style tabs) */}
         <div
           style={{
             display: "flex",
@@ -77,7 +127,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
             justifyContent: "space-between",
             flexWrap: "wrap",
             gap: "20px",
-            marginBottom: "36px",
+            marginBottom: "32px",
           }}
         >
           <div>
@@ -99,50 +149,110 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
             </h2>
           </div>
 
-          {/* Project Switcher Tabs Matching Screenshot 2 */}
-          <div style={{ display: "flex", gap: "8px" }}>
-            {projects.map((proj, idx) => {
-              const isActive = activeTab === idx;
-              return (
-                <button
-                  key={proj.tabLabel}
-                  type="button"
-                  onClick={() => setActiveTab(idx)}
-                  style={{
-                    padding: "8px 18px",
-                    borderRadius: "9999px",
-                    fontSize: "0.875rem",
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    transition: "all 0.2s ease",
-                    border: isActive ? "1px solid #101311" : "1px solid var(--border-subtle)",
-                    backgroundColor: isActive ? "var(--accent-primary)" : "var(--bg-card)",
-                    color: isActive ? "#101311" : "var(--text-muted)",
-                    boxShadow: isActive ? "var(--shadow-sm)" : "none",
-                  }}
-                >
-                  {proj.tabLabel}
-                </button>
-              );
-            })}
+          {/* Auto-Slide Carousel Controls & Progress Indicator */}
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+            {/* Slide Index Counter */}
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.8rem",
+                color: "var(--text-muted)",
+                fontWeight: 600,
+              }}
+            >
+              0{activeTab + 1} / 0{projects.length}
+            </span>
+
+            {/* Progress Segment Bars */}
+            <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+              {projects.map((proj, idx) => {
+                const isActive = activeTab === idx;
+                return (
+                  <button
+                    key={proj.title}
+                    type="button"
+                    aria-label={`Jump to ${proj.title}`}
+                    onClick={() => setActiveTab(idx)}
+                    style={{
+                      height: "6px",
+                      width: isActive ? "32px" : "12px",
+                      borderRadius: "9999px",
+                      backgroundColor: isActive ? "var(--accent-primary)" : "var(--border-strong)",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: 0,
+                      transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                    }}
+                  />
+                );
+              })}
+            </div>
+
+            {/* Prev / Next Arrows */}
+            <div style={{ display: "flex", gap: "6px" }}>
+              <button
+                type="button"
+                aria-label="Previous Project"
+                onClick={goToPrev}
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "50%",
+                  border: "1px solid var(--border-subtle)",
+                  backgroundColor: "var(--bg-card)",
+                  color: "var(--text-heading)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  transition: "all 0.15s ease",
+                }}
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                type="button"
+                aria-label="Next Project"
+                onClick={goToNext}
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "50%",
+                  border: "1px solid var(--border-subtle)",
+                  backgroundColor: "var(--bg-card)",
+                  color: "var(--text-heading)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  transition: "all 0.15s ease",
+                }}
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Master Deep Dive Split Card Matching Screenshot 2 */}
+        {/* Master Deep Dive Split Card with Auto-Swipe on Hover Pause */}
         <div
           className="studio-card deep-dive-card"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           style={{
             padding: "40px",
             display: "grid",
-            gridTemplateColumns: "1.1fr 0.9fr",
-            gap: "48px",
+            gridTemplateColumns: "1.05fr 0.95fr",
+            gap: "44px",
             alignItems: "center",
+            position: "relative",
           }}
         >
-          {/* Left Column: Problem, Engineered, Result */}
+          {/* Left Column: Problem, Engineered, Result & Live Link */}
           <div>
-            <div style={{ marginBottom: "24px" }}>
+            <div style={{ marginBottom: "22px" }}>
               <div
                 style={{
                   fontFamily: "var(--font-mono)",
@@ -181,7 +291,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
             </div>
 
             {/* WHAT WE ENGINEERED block */}
-            <div style={{ marginBottom: "24px" }}>
+            <div style={{ marginBottom: "22px" }}>
               <div
                 style={{
                   fontFamily: "var(--font-mono)",
@@ -200,20 +310,20 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
               </p>
             </div>
 
-            {/* RESULT highlighted lime callout matching Screenshot 2 */}
+            {/* RESULT highlighted lime callout */}
             <div
               style={{
                 backgroundColor: "var(--accent-primary)",
                 color: "#101311",
-                padding: "14px 20px",
+                padding: "13px 18px",
                 borderRadius: "14px",
                 fontFamily: "var(--font-display)",
                 fontWeight: 700,
-                fontSize: "0.95rem",
+                fontSize: "0.925rem",
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "10px",
-                marginBottom: "24px",
+                marginBottom: "22px",
                 boxShadow: "0 2px 10px rgba(199, 243, 107, 0.3)",
               }}
             >
@@ -221,156 +331,146 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
               <span>[ {current.result} ]</span>
             </div>
 
+            {/* Tech Stack Pills */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "26px" }}>
+              {current.stack.map((tech) => (
+                <span
+                  key={tech}
+                  style={{
+                    fontSize: "0.75rem",
+                    fontFamily: "var(--font-mono)",
+                    padding: "3px 10px",
+                    borderRadius: "6px",
+                    backgroundColor: "var(--bg-inset)",
+                    border: "1px solid var(--border-subtle)",
+                    color: "var(--text-muted)",
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Live Website Link Only (Clean, single direct CTA) */}
             <div>
-              <button
-                type="button"
-                onClick={onOpenBooking}
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  color: "var(--text-heading)",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  fontSize: "0.95rem",
-                  cursor: "pointer",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  padding: 0,
-                }}
-              >
-                <span>Read full case study</span>
-                <ArrowRight size={16} />
-              </button>
+              {current.websiteUrl ? (
+                <a
+                  href={current.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "11px 22px",
+                    borderRadius: "9999px",
+                    backgroundColor: "var(--accent-primary)",
+                    color: "#101311",
+                    fontWeight: 700,
+                    fontSize: "0.875rem",
+                    fontFamily: "var(--font-display)",
+                    textDecoration: "none",
+                    boxShadow: "0 2px 12px rgba(199, 243, 107, 0.35)",
+                    transition: "transform 0.15s ease",
+                  }}
+                >
+                  <Globe size={15} />
+                  <span>Visit Live Website</span>
+                  <ExternalLink size={13} style={{ opacity: 0.8 }} />
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={onOpenBooking}
+                  style={{
+                    background: "transparent",
+                    border: "none",
+                    color: "var(--text-heading)",
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 700,
+                    fontSize: "0.95rem",
+                    cursor: "pointer",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    padding: 0,
+                  }}
+                >
+                  <span>Inquire about this architecture</span>
+                  <ArrowRight size={16} />
+                </button>
+              )}
             </div>
           </div>
 
-          {/* Right Column: Live Telemetry & Interactive Sparkline Card */}
+          {/* Right Column: Clean Visual Showcase Window (Mock metrics, sparkline & fake URLs removed) */}
           <div
             style={{
-              backgroundColor: "var(--bg-inset)",
+              position: "relative",
               borderRadius: "20px",
+              overflow: "hidden",
               border: "1px solid var(--border-subtle)",
-              padding: "24px",
+              backgroundColor: "var(--bg-card)",
+              boxShadow: "var(--shadow-lg)",
             }}
           >
-            {/* Header pill */}
+            {/* Window Header Bar with traffic light dots only - NO URL TEXT */}
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                paddingBottom: "16px",
+                padding: "12px 18px",
+                backgroundColor: "var(--bg-inset)",
                 borderBottom: "1px solid var(--border-subtle)",
-                marginBottom: "20px",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                <Activity size={14} style={{ color: "#22C55E" }} />
-                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-heading)" }}>
-                  REAL-TIME TELEMETRY
-                </span>
+              <div style={{ display: "flex", gap: "7px", alignItems: "center" }}>
+                <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF5F56" }} />
+                <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FFBD2E" }} />
+                <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#27C93F" }} />
               </div>
               <span
                 style={{
                   fontSize: "0.7rem",
                   fontFamily: "var(--font-mono)",
-                  padding: "3px 8px",
+                  padding: "3px 10px",
                   borderRadius: "9999px",
-                  background: "rgba(34, 197, 94, 0.15)",
+                  background: "rgba(34, 197, 94, 0.12)",
                   color: "#16A34A",
                   fontWeight: 700,
+                  letterSpacing: "0.04em",
                 }}
               >
-                VERIFIED OUTCOME
+                PRODUCTION SHOWCASE
               </span>
             </div>
 
-            {/* Stats Triplets */}
+            {/* Uncropped, Full-Fidelity Project Screenshot */}
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-                gap: "12px",
-                marginBottom: "24px",
-              }}
-            >
-              {current.stats.map((stat, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    backgroundColor: "var(--bg-card)",
-                    padding: "14px",
-                    borderRadius: "12px",
-                    border: "1px solid var(--border-subtle)",
-                  }}
-                >
-                  <div style={{ fontSize: "0.7rem", color: "var(--text-muted)", marginBottom: "4px" }}>
-                    {stat.label}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "1.25rem",
-                      fontWeight: 800,
-                      color: "var(--text-heading)",
-                      fontFamily: "var(--font-mono)",
-                    }}
-                  >
-                    {stat.value}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Sparkline Visual */}
-            <div
-              style={{
-                backgroundColor: "var(--bg-card)",
-                borderRadius: "14px",
-                padding: "16px",
-                border: "1px solid var(--border-subtle)",
-                marginBottom: "16px",
-              }}
-            >
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "10px" }}>
-                <span>VELOCITY CURVE</span>
-                <span style={{ color: "#16A34A", fontWeight: 700 }}>+99.8% Reliability</span>
-              </div>
-              <svg viewBox="0 0 460 70" style={{ width: "100%", height: "65px", overflow: "visible" }}>
-                <defs>
-                  <linearGradient id={current.gradientId} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#C7F36B" stopOpacity="0.45" />
-                    <stop offset="100%" stopColor="#C7F36B" stopOpacity="0.0" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d={`${current.sparklinePoints} L460,70 L0,70 Z`}
-                  fill={`url(#${current.gradientId})`}
-                />
-                <path
-                  d={current.sparklinePoints}
-                  fill="none"
-                  stroke="#84CC16"
-                  strokeWidth="3.2"
-                  strokeLinecap="round"
-                />
-                <circle cx="460" cy="4" r="5" fill="#C7F36B" stroke="#101311" strokeWidth="2" />
-              </svg>
-            </div>
-
-            {/* Bottom sprint timeline */}
-            <div
-              style={{
+                position: "relative",
+                width: "100%",
+                aspectRatio: "16 / 9.5",
+                backgroundColor: "var(--bg-inset)",
+                overflow: "hidden",
                 display: "flex",
-                justifyContent: "space-between",
-                fontSize: "0.75rem",
-                color: "var(--text-muted)",
-                fontFamily: "var(--font-mono)",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <span>Sprint Week 1: PoC</span>
-              <span>Sprint Week 2: Build</span>
-              <span style={{ color: "var(--text-heading)", fontWeight: 700 }}>Sprint Week 3: Production</span>
+              <Image
+                key={current.image}
+                src={current.image}
+                alt={current.client}
+                fill
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
+                sizes="(max-width: 900px) 100vw, 600px"
+                priority
+              />
             </div>
           </div>
         </div>
