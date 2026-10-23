@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Globe, Smartphone, Bot, Workflow } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Globe, Smartphone, Bot, Workflow, ExternalLink, HeartPulse, Sparkles, TrendingUp, Layers, Activity, Building2, Database } from "lucide-react";
 
 interface ProvenOutcomesProps {
   onOpenBooking: () => void;
@@ -10,62 +10,119 @@ interface ProvenOutcomesProps {
 export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const filters = ["All", "Websites", "Mobile", "AI", "Automation"];
+  const filters = ["All", "SaaS & CRM", "Websites", "Mobile", "Automation", "AI", "Design"];
 
   const projects = [
     {
-      title: "FinPulse NeoBank",
+      title: "OpenTreatment — Healthcare",
       category: "Mobile",
-      metric: "120ms Latency · 4.9 App Rating",
-      desc: "Cross-platform Flutter mobile wallet with native UPI deep-linking and biometric instant payouts.",
-      badge: "LIVE PRODUCTION",
-      stack: "Flutter · Go · Razorpay",
-      icon: Smartphone,
+      metric: "15,000+ Consultations · 100% HIPAA",
+      desc: "Healthcare platform helping patients find and reach verified doctors, hospitals, and diagnostic labs across web and mobile.",
+      badge: "LIVE & ON STORE",
+      stack: "Next.js · React Native · Node.js · PostgreSQL",
+      icon: HeartPulse,
     },
     {
-      title: "Omniflow Logistics",
-      category: "Automation",
-      metric: "85,000+ Monthly Shipments",
-      desc: "Automated WhatsApp dispatch, Dunzo/Shiprocket carrier routing, and real-time customer alerts.",
-      badge: "ENTERPRISE SCALE",
-      stack: "WhatsApp Cloud · Node.js · Tally",
+      title: "Multi-Tenant SaaS CRM",
+      category: "SaaS & CRM",
+      metric: "150+ Enterprise Tenants · < 80ms RLS Query",
+      desc: "Cloud multi-tenant CRM engine with dynamic PostgreSQL Row-Level Security tenant isolation, automated SSL domain routing, RBAC user admin, and real-time telemetry.",
+      badge: "MULTI-TENANT SAAS",
+      stack: "Next.js · Node.js · PostgreSQL (RLS) · Redis · BullMQ · Docker",
+      icon: Building2,
+    },
+    {
+      title: "TicketCRM — Helpdesk Support",
+      category: "SaaS & CRM",
+      metric: "453 Inflow · 34h MTTR · 99.2% SLA",
+      desc: "SLA-driven enterprise ticketing platform with BullMQ routing, business-hour tracking, and real-time queues.",
+      badge: "ENTERPRISE SUPPORT",
+      stack: "React · Node.js · Express · Redis · BullMQ · Socket.IO",
       icon: Workflow,
     },
     {
-      title: "Kensho Retail D2C",
+      title: "Pick4U — Hyperlocal Delivery",
       category: "Websites",
-      metric: "+280% Mobile Conversion",
-      desc: "Headless Next.js App Router digital storefront with edge caching and 1-click Cashfree checkout.",
-      badge: "SUB-SECOND LCP",
-      stack: "Next.js 15 · Tailwind · Shopify Plus",
+      metric: "10K+ Customers · 30min Avg Delivery",
+      desc: "Fast, reliable on-demand intra-city delivery platform with live parcel dispatch, transparent pricing tiers, and automated routing.",
+      badge: "HYPERLOCAL LOGISTICS",
+      stack: "Next.js · React · Tailwind CSS · Node.js · Express",
       icon: Globe,
     },
     {
-      title: "DocuExtract AI",
-      category: "AI",
-      metric: "99.8% Field Extraction Precision",
-      desc: "Autonomous LLM document parser processing Indian GST invoices, bills of lading, and bank statements.",
-      badge: "CUSTOM RAG",
-      stack: "OpenAI GPT-4o · Python · Pinecone",
-      icon: Bot,
-    },
-    {
-      title: "CloudKitchen POS & KDS",
+      title: "Makaan Marketplace API",
       category: "Websites",
-      metric: "14 Kitchen Outlets Synchronized",
-      desc: "Centralized kitchen display system connecting Zomato & Swiggy webhooks directly to order printers.",
-      badge: "ZERO DROPPED ORDERS",
-      stack: "Next.js · WebSockets · PostgreSQL",
+      metric: "5,000+ Listings · < 200ms Latency",
+      desc: "High-throughput real-estate marketplace API connecting builders, dealers, and buyers with automated Sharp S3 image compression.",
+      badge: "SCALABLE API",
+      stack: "Node.js · Express · PostgreSQL · Sequelize · AWS S3",
       icon: Globe,
     },
     {
-      title: "AutoLedger ERP Sync",
+      title: "Katan Saree Storefront",
+      category: "Websites",
+      metric: "3.4x Mobile Conv · 850ms LCP",
+      desc: "High-performance luxury saree digital storefront engineered for global customers with multi-currency checkout and sub-second speed.",
+      badge: "GLOBAL D2C",
+      stack: "React · Redux · Tailwind · Stripe",
+      icon: Globe,
+    },
+    {
+      title: "Ember Events Jaipur",
+      category: "Websites",
+      metric: "120+ Curated Weddings · 4.9 CSAT",
+      desc: "Bespoke wedding and experiential event booking platform for premier Rajasthan celebration management.",
+      badge: "SHOWCASE PORTAL",
+      stack: "React · JavaScript · CSS · Vercel",
+      icon: Globe,
+    },
+    {
+      title: "Music Ed-Tech Platform",
+      category: "Websites",
+      metric: "Sub-25ms Audio · 98 Lighthouse",
+      desc: "Modern and interactive music learning platform built with Next.js, TypeScript, Aceternity UI, and real-time audio modules.",
+      badge: "INTERACTIVE EDTECH",
+      stack: "Next.js · TypeScript · Aceternity UI · Tailwind",
+      icon: Globe,
+    },
+    {
+      title: "FINEbuddy Financial Dashboard",
+      category: "Design",
+      metric: "Sub-Second Data UX · 0.4s Query",
+      desc: "Personal finance and investment management dashboard turning dense financial analytics into clear, confident daily decision-making tools.",
+      badge: "FINTECH PRODUCT",
+      stack: "Product Design · Dashboard · Data UX",
+      icon: Layers,
+    },
+    {
+      title: "Hit It! Fitness Gamification",
+      category: "Mobile",
+      metric: "+64% Daily Workout Retention",
+      desc: "Product design and gamification system using habit loops, streaks, and tactile micro-interactions to lift workout engagement.",
+      badge: "MOBILE UX",
+      stack: "Product Design · UX Architecture · Mobile",
+      icon: Activity,
+      hasExternalLinks: false,
+    },
+    {
+      title: "WhatsApp Message Scheduler",
       category: "Automation",
-      metric: "100% Automated GST Ledgering",
-      desc: "Direct ODBC & XML bridge syncing multi-channel e-commerce sales vouchers into Tally Prime without humans.",
-      badge: "ZERO MANUAL ENTRY",
-      stack: "Tally Prime · Python · AWS Lambda",
+      metric: "Published in UX Collective Bootcamp",
+      desc: "Frictionless native scheduled-message UX pattern designed to feel invisible within everyday messaging habits and queue syncs.",
+      badge: "FEATURE ARCHITECTURE",
+      stack: "UX Design · Systems Design · Published",
       icon: Workflow,
+      hasExternalLinks: false,
+    },
+    {
+      title: "CODEDECK Real-Time Platform",
+      category: "Websites",
+      metric: "Real-Time Multi-Cursor Sync",
+      desc: "Developer-focused web platform for collaborative code editing, syntax evaluation, and zero-latency live paired programming.",
+      badge: "DEV PLATFORM",
+      stack: "Web Design · UI Systems · Product",
+      icon: Globe,
+      hasExternalLinks: false,
     },
   ];
 
@@ -73,6 +130,9 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     activeFilter === "All"
       ? projects
       : projects.filter((p) => p.category === activeFilter);
+
+  const getCount = (cat: string) =>
+    cat === "All" ? projects.length : projects.filter((p) => p.category === cat).length;
 
   return (
     <section id="outcomes" className="section-padding" style={{ backgroundColor: "var(--bg-canvas)", position: "relative" }}>
@@ -127,9 +187,21 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
                     border: isActive ? "1px solid #101311" : "1px solid var(--border-subtle)",
                     backgroundColor: isActive ? "var(--accent-primary)" : "var(--bg-card)",
                     color: isActive ? "#101311" : "var(--text-muted)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
                   }}
                 >
-                  {filter}
+                  <span>{filter}</span>
+                  <span
+                    style={{
+                      fontSize: "0.7rem",
+                      fontFamily: "var(--font-mono)",
+                      opacity: isActive ? 0.9 : 0.6,
+                    }}
+                  >
+                    ({getCount(filter)})
+                  </span>
                 </button>
               );
             })}
