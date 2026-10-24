@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Globe, Smartphone, Bot, Workflow, ExternalLink, HeartPulse, Sparkles, TrendingUp, Layers, Activity, Building2, Database } from "lucide-react";
 
 interface ProvenOutcomesProps {
@@ -8,10 +8,6 @@ interface ProvenOutcomesProps {
 }
 
 export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filters = ["All", "SaaS & CRM", "Websites", "Mobile", "Automation", "AI", "Design"];
-
   const projects = [
     {
       title: "OpenTreatment — Healthcare",
@@ -126,86 +122,27 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     },
   ];
 
-  const filteredProjects =
-    activeFilter === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
-
-  const getCount = (cat: string) =>
-    cat === "All" ? projects.length : projects.filter((p) => p.category === cat).length;
-
   return (
     <section id="outcomes" className="section-padding" style={{ backgroundColor: "var(--bg-canvas)", position: "relative" }}>
       <div className="container-custom">
-        {/* Header & Filter Pills Matching Screenshot 3 */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "20px",
-            marginBottom: "40px",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "0.8125rem",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.12em",
-                color: "var(--text-muted)",
-                marginBottom: "8px",
-              }}
-            >
-              PORTFOLIO
-            </div>
-            <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.8rem)", fontWeight: 800 }}>
-              Proven outcomes in production.
-            </h2>
+        {/* Header */}
+        <div style={{ maxWidth: "680px", marginBottom: "36px" }}>
+          <div
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "0.8125rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.12em",
+              color: "var(--text-muted)",
+              marginBottom: "8px",
+            }}
+          >
+            PORTFOLIO
           </div>
-
-          {/* Filter Pills */}
-          <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-            {filters.map((filter) => {
-              const isActive = activeFilter === filter;
-              return (
-                <button
-                  key={filter}
-                  type="button"
-                  onClick={() => setActiveFilter(filter)}
-                  style={{
-                    padding: "7px 16px",
-                    borderRadius: "9999px",
-                    fontSize: "0.8125rem",
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    transition: "all 0.15s ease",
-                    border: isActive ? "1px solid #101311" : "1px solid var(--border-subtle)",
-                    backgroundColor: isActive ? "var(--accent-primary)" : "var(--bg-card)",
-                    color: isActive ? "#101311" : "var(--text-muted)",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "6px",
-                  }}
-                >
-                  <span>{filter}</span>
-                  <span
-                    style={{
-                      fontSize: "0.7rem",
-                      fontFamily: "var(--font-mono)",
-                      opacity: isActive ? 0.9 : 0.6,
-                    }}
-                  >
-                    ({getCount(filter)})
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+          <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.8rem)", fontWeight: 800 }}>
+            Proven outcomes in production.
+          </h2>
         </div>
 
         {/* 6 Bento Outcome Cards in 3x2 Grid */}
@@ -217,7 +154,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
             gap: "24px",
           }}
         >
-          {filteredProjects.map((item, index) => {
+          {projects.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
@@ -335,6 +272,8 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
+                    flexWrap: "wrap",
+                    gap: "8px",
                   }}
                 >
                   <span

@@ -265,13 +265,10 @@ export default function AutomationVisualizer() {
         {/* Selected Node Inspector Panel */}
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "20px",
             backgroundColor: "var(--bg-inset)",
             borderRadius: "20px",
             border: "1px solid var(--border-subtle)",
-            padding: "24px",
+            padding: "clamp(16px, 3vw, 24px)",
           }}
           className="inspector-grid"
         >
@@ -295,7 +292,7 @@ export default function AutomationVisualizer() {
             <p style={{ color: "var(--text-body)", fontSize: "0.9375rem", lineHeight: 1.6, marginBottom: "16px" }}>
               {nodes[selectedNode].detail}
             </p>
-            <div style={{ display: "flex", gap: "12px", fontSize: "0.8125rem", color: "var(--text-muted)" }}>
+            <div style={{ display: "flex", gap: "12px", fontSize: "0.8125rem", color: "var(--text-muted)", flexWrap: "wrap" }}>
               <span>Stage: <strong style={{ color: "var(--text-heading)" }}>{nodes[selectedNode].stage}</strong></span>
               <span>·</span>
               <span>Delivery: <strong style={{ color: "#16A34A" }}>Verified Idempotent</strong></span>
@@ -323,6 +320,10 @@ export default function AutomationVisualizer() {
                 fontSize: "0.8125rem",
                 overflowX: "auto",
                 border: "1px solid rgba(199, 243, 107, 0.2)",
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-all",
+                maxWidth: "100%",
+                margin: 0,
               }}
             >
               <code>{nodes[selectedNode].payload}</code>
@@ -331,22 +332,7 @@ export default function AutomationVisualizer() {
         </div>
 
         {/* Full-Width Pricing & Scoping Highlight Box */}
-        <div
-          className="pricing-box-wrap"
-          style={{
-            marginTop: "36px",
-            display: "flex",
-            alignItems: "center",
-            gap: "14px",
-            padding: "clamp(14px, 3vw, 20px) clamp(14px, 3vw, 24px)",
-            borderRadius: "16px",
-            backgroundColor: "var(--bg-card)",
-            border: "1px solid var(--border-subtle)",
-            boxShadow: "var(--shadow-sm)",
-            flexWrap: "wrap",
-            width: "100%",
-          }}
-        >
+        <div className="pricing-box-wrap">
           <span
             style={{
               display: "inline-flex",
@@ -360,6 +346,7 @@ export default function AutomationVisualizer() {
               fontSize: "0.8rem",
               fontWeight: 800,
               letterSpacing: "0.03em",
+              flexShrink: 0,
             }}
           >
             PRICED FOR YOUR PROJECT
@@ -403,9 +390,35 @@ export default function AutomationVisualizer() {
         .animate-spin {
           animation: spin 1s linear infinite;
         }
-        @media (max-width: 800px) {
+        .inspector-grid {
+          display: grid;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 24px;
+          align-items: start;
+        }
+        .pricing-box-wrap {
+          margin-top: 36px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 14px;
+          padding: clamp(14px, 3vw, 20px) clamp(14px, 3vw, 24px);
+          border-radius: 16px;
+          background-color: var(--bg-card);
+          border: 1px solid var(--border-subtle);
+          box-shadow: var(--shadow-sm);
+          width: 100%;
+        }
+        @media (max-width: 860px) {
           .inspector-grid {
             grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+          .pricing-box-wrap,
+          :global(.pricing-box-wrap) {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
           }
         }
       `}</style>

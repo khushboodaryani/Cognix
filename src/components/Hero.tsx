@@ -18,11 +18,12 @@ export default function Hero({ onOpenBooking }: HeroProps) {
     <section
       style={{
         position: "relative",
-        paddingTop: "60px",
+        paddingTop: "clamp(96px, 12vw, 130px)",
         paddingBottom: "80px",
         overflow: "hidden",
         textAlign: "center",
       }}
+      className="hero-section"
     >
       {/* Background radial glow */}
       <div
@@ -265,11 +266,11 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
           {/* Center Main Stage Window Mockup */}
           <div
-            className="studio-card"
+            className="studio-card hero-stage-card"
             style={{
               position: "relative",
               zIndex: 2,
-              padding: "20px 24px 28px",
+              padding: "clamp(16px, 3vw, 24px) clamp(14px, 3vw, 24px) clamp(20px, 3.5vw, 28px)",
               border: "1px solid var(--border-subtle)",
               boxShadow: "var(--shadow-lg)",
               background: "var(--bg-card)",
@@ -285,18 +286,23 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 paddingBottom: "16px",
                 borderBottom: "1px solid var(--border-subtle)",
                 marginBottom: "20px",
+                flexWrap: "wrap",
+                gap: "10px",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF5F56" }} />
-                <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FFBD2E" }} />
-                <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#27C93F" }} />
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF5F56" }} />
+                  <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FFBD2E" }} />
+                  <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#27C93F" }} />
+                </div>
                 <span
                   style={{
-                    marginLeft: "8px",
+                    marginLeft: "4px",
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.75rem",
                     color: "var(--text-muted)",
+                    wordBreak: "break-all",
                   }}
                 >
                   {activeTelemetryTab === 0
@@ -320,6 +326,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   border: "1px solid rgba(199, 243, 107, 0.4)",
                   fontSize: "0.75rem",
                   fontWeight: 700,
+                  whiteSpace: "nowrap",
                 }}
               >
                 <span className="pulse-dot" />
@@ -361,7 +368,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                       ? "Healthcare & Telehealth Platform"
                       : "Mobile App & Payment Gateway"}
                   </div>
-                  <h3 style={{ fontSize: "1.45rem", fontWeight: 800, color: "var(--text-heading)", margin: "2px 0 0" }}>
+                  <h3 style={{ fontSize: "clamp(1.15rem, 3.5vw, 1.45rem)", fontWeight: 800, color: "var(--text-heading)", margin: "2px 0 0" }}>
                     {activeTelemetryTab === 0
                       ? "TicketCRM — SLA-Driven Helpdesk Platform"
                       : activeTelemetryTab === 1
@@ -370,7 +377,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   </h3>
                 </div>
 
-                <div style={{ display: "flex", gap: "8px" }}>
+                <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                   {tabs.map((tab, idx) => (
                     <button
                       key={tab}
@@ -406,7 +413,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <div
                     style={{
                       display: "grid",
-                      gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 150px), 1fr))",
                       gap: "12px",
                       marginBottom: "16px",
                     }}
@@ -531,7 +538,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <div
                     style={{
                       display: "grid",
-                      gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 150px), 1fr))",
                       gap: "12px",
                       marginBottom: "16px",
                     }}
@@ -652,7 +659,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <div
                     style={{
                       display: "grid",
-                      gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 150px), 1fr))",
                       gap: "16px",
                       marginBottom: "20px",
                     }}
@@ -766,6 +773,12 @@ export default function Hero({ onOpenBooking }: HeroProps) {
         @media (max-width: 900px) {
           .hidden-mobile {
             display: none !important;
+          }
+        }
+        @media (max-width: 640px) {
+          :global(.hero-stage-card) {
+            padding: 16px 12px 20px !important;
+            border-radius: 18px !important;
           }
         }
       `}</style>
