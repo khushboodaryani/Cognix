@@ -60,7 +60,7 @@ export default function Footer() {
                 DIRECT INQUIRIES
               </div>
               <a
-                href="mailto:hello@cognixs.in"
+                href="mailto:work.cognixs@gmail.com"
                 style={{
                   fontSize: "1.0625rem",
                   fontWeight: 600,
@@ -73,7 +73,7 @@ export default function Footer() {
                 }}
                 className="footer-email-link"
               >
-                hello@cognixs.in
+                work.cognixs@gmail.com
               </a>
             </div>
           </div>

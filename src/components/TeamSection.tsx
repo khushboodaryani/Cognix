@@ -31,10 +31,12 @@ function TeamAvatar({
   src,
   alt,
   initials,
+  objectPosition = "center 20%",
 }: {
   src: string;
   alt: string;
   initials: string;
+  objectPosition?: string;
 }) {
   const [hasError, setHasError] = useState(false);
 
@@ -63,6 +65,7 @@ function TeamAvatar({
             width: "100%",
             height: "100%",
             objectFit: "cover",
+            objectPosition: objectPosition,
             display: "block",
           }}
         />
@@ -175,6 +178,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
                   src="/team/lalit.jpg"
                   alt="Lalit Chaudhary"
                   initials="LC"
+                  objectPosition="center 42%"
                 />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <h3
@@ -319,6 +323,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
                   src="/team/khushboo.jpg"
                   alt="Khushboo Daryani"
                   initials="KD"
+                  objectPosition="center 14%"
                 />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <h3
@@ -340,7 +345,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
                       marginBottom: "10px",
                     }}
                   >
-                    Mobile &amp; Web Developer
+                    Full-Stack Developer · Mobile &amp; Web
                   </div>
                   <div
                     style={{
@@ -371,7 +376,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
                   marginBottom: "24px",
                 }}
               >
-                Mobile and web developer with 3+ years of experience at a digital agency, where she delivered 20+ client projects in React Native and web. Brings agency-level process, clean code and on-time delivery to every build.
+                Full-stack developer with 3+ years of experience and 20+ projects delivered for companies across different industries, from mobile apps to full web platforms. Works across the whole stack: smooth React Native apps, responsive web interfaces, and the APIs and databases behind them. Part of the core team building OpenTreatment, a healthcare platform live on the web and Google Play.
               </p>
 
               {/* Skills Chips */}
@@ -383,7 +388,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
                     gap: "8px",
                   }}
                 >
-                  {["React Native", "React", "JavaScript", "APIs & Backend"].map((skill) => (
+                  {["React Native", "React", "Node.js", "REST APIs", "Databases", "Full-Stack"].map((skill) => (
                     <span
                       key={skill}
                       style={{

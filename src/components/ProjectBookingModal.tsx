@@ -34,16 +34,30 @@ export default function ProjectBookingModal({ isOpen, onClose }: ProjectBookingM
     "Flexible / Exploring",
   ];
 
+  const sendToWhatsApp = () => {
+    const lines = [
+      "🚀 *New Project Inquiry | Cognixs*",
+      "",
+      `*Name:* ${name.trim() || "Founder"}`,
+      `*Work Email:* ${email.trim() || "Not provided"}`,
+      phone.trim() ? `*Phone / WhatsApp:* ${phone.trim()}` : null,
+      `*Service Required:* ${selectedService}`,
+      `*Target Timeline:* ${timeline}`,
+      notes.trim() ? `*Project Overview:*\n${notes.trim()}` : null,
+    ].filter(Boolean);
+
+    const text = encodeURIComponent(lines.join("\n"));
+    window.open(`https://wa.me/916396880866?text=${text}`, "_blank");
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    sendToWhatsApp();
     setSubmitted(true);
   };
 
   const handleWhatsAppDirect = () => {
-    const text = encodeURIComponent(
-      `Hi Cognixs Team! I'm interested in scoping a project.\n\nName: ${name || "Founder"}\nService: ${selectedService}\nTimeline: ${timeline}\nNotes: ${notes || "Looking for consultation"}`
-    );
-    window.open(`https://wa.me/916396880866?text=${text}`, "_blank");
+    sendToWhatsApp();
   };
 
   return (

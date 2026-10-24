@@ -96,7 +96,7 @@ export default function RootLayout({
         name: "Cognixs",
         url: "https://cognixs.in",
         logo: "https://cognixs.in/assets/logo/logo-full-light.svg",
-        email: "hello@cognixs.in",
+        email: "work.cognixs@gmail.com",
         description:
           "Elite digital product and AI automation engineering studio headquartered in India. Architecting websites, mobile apps, LLM agents, and enterprise workflows.",
         sameAs: [

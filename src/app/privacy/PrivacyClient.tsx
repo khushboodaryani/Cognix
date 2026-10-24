@@ -73,7 +73,7 @@ export default function PrivacyClient() {
               Cognixs (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is a technology studio based in Delhi NCR, India that designs and builds websites, mobile apps, bespoke AI solutions, and business automations for businesses.
             </p>
             <p>
-              This website ([cognixs.in]) and our services are operated by <strong>[LEGAL NAME]</strong>, based in <strong>New Delhi</strong>, India. Contact email: <strong>[hello@cognixs.in]</strong>.
+              This website ([cognixs.in]) and our services are operated by <strong>[LEGAL NAME]</strong>, based in <strong>New Delhi</strong>, India. Contact email: <strong>[work.cognixs@gmail.com]</strong>.
             </p>
             <p>
               We respect your privacy and are committed to protecting your personal data in accordance with applicable laws, including India&rsquo;s Digital Personal Data Protection Act, 2023 (DPDPA). This Privacy Policy explains in plain, simple English what information we collect, how we handle it, who we share it with, and your rights regarding your personal data.
@@ -109,7 +109,7 @@ export default function PrivacyClient() {
               In accordance with India&rsquo;s Digital Personal Data Protection Act, 2023, we process your personal data primarily based on your freely given, specific, informed, and unambiguous consent when you submit an enquiry form or engage our studio.
             </p>
             <p>
-              We may also process data under recognized legitimate uses, such as fulfilling a contract or agreed project scope requested by you, preventing fraud or security breaches, or fulfilling obligations under applicable Indian laws. You may withdraw your consent at any time by contacting us at <strong>[hello@cognixs.in]</strong>.
+              We may also process data under recognized legitimate uses, such as fulfilling a contract or agreed project scope requested by you, preventing fraud or security breaches, or fulfilling obligations under applicable Indian laws. You may withdraw your consent at any time by contacting us at <strong>[work.cognixs@gmail.com]</strong>.
             </p>
 
             <h2>4. Cookies</h2>
@@ -162,7 +162,7 @@ export default function PrivacyClient() {
               <li><strong>Right to nominate:</strong> In the event of death or incapacity, you have the right to nominate an individual to exercise your rights.</li>
               <li><strong>Right of grievance redressal:</strong> You can raise an inquiry or grievance directly with our team if you believe your data has been mishandled.</li>
             </ul>
-            <p>To exercise any of these rights, please write to us at <strong>[hello@cognixs.in]</strong>.</p>
+            <p>To exercise any of these rights, please write to us at <strong>[work.cognixs@gmail.com]</strong>.</p>
 
             <h2>9. Third-Party Links</h2>
             <p>
@@ -198,7 +198,7 @@ export default function PrivacyClient() {
               </div>
               <div style={{ color: "var(--text-body)", fontSize: "0.9375rem", lineHeight: 1.6 }}>
                 <div><strong>Location:</strong> New Delhi, India</div>
-                <div><strong>Contact Email:</strong> [hello@cognixs.in]</div>
+                <div><strong>Contact Email:</strong> [work.cognixs@gmail.com]</div>
               </div>
             </div>
           </div>

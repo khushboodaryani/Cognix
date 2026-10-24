@@ -3,83 +3,10 @@
 import React, { useState } from "react";
 
 export default function FloatingSocials() {
-  const [hoveredInstagram, setHoveredInstagram] = useState(false);
   const [hoveredWhatsApp, setHoveredWhatsApp] = useState(false);
 
   return (
     <>
-      {/* Left Side: Instagram Button */}
-      <aside
-        aria-label="Instagram link"
-        style={{
-          position: "fixed",
-          bottom: "24px",
-          left: "20px",
-          zIndex: 999,
-          display: "flex",
-          alignItems: "center",
-          gap: "8px",
-        }}
-      >
-        <a
-          href="https://www.instagram.com/cognixs.in/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow Cognixs on Instagram (@cognixs.in)"
-          onMouseEnter={() => setHoveredInstagram(true)}
-          onMouseLeave={() => setHoveredInstagram(false)}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            height: "48px",
-            padding: hoveredInstagram ? "0 18px 0 12px" : "0 12px",
-            borderRadius: "9999px",
-            background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
-            color: "#ffffff",
-            textDecoration: "none",
-            boxShadow: hoveredInstagram
-              ? "0 12px 28px -4px rgba(220, 39, 67, 0.55), 0 4px 12px rgba(0, 0, 0, 0.15)"
-              : "0 8px 20px -4px rgba(220, 39, 67, 0.4), 0 2px 8px rgba(0, 0, 0, 0.1)",
-            transform: hoveredInstagram ? "scale(1.06) translateY(-2px)" : "scale(1)",
-            transition: "all 0.28s cubic-bezier(0.16, 1, 0.3, 1)",
-            cursor: "pointer",
-          }}
-        >
-          {/* Instagram SVG Icon */}
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{ flexShrink: 0 }}
-          >
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-          </svg>
-
-          {/* Label expands on hover or desktop */}
-          <span
-            className="social-label"
-            style={{
-              fontSize: "0.85rem",
-              fontWeight: 600,
-              fontFamily: "var(--font-sans)",
-              letterSpacing: "-0.01em",
-              whiteSpace: "nowrap",
-              display: hoveredInstagram ? "inline-block" : "none",
-            }}
-          >
-            @cognixs.in
-          </span>
-        </a>
-      </aside>
-
       {/* Right Side: WhatsApp Button */}
       <aside
         aria-label="WhatsApp contact"
@@ -177,11 +104,6 @@ export default function FloatingSocials() {
         @media (max-width: 640px) {
           aside {
             bottom: 18px !important;
-          }
-          aside:first-of-type {
-            left: 14px !important;
-          }
-          aside:last-of-type {
             right: 14px !important;
           }
         }

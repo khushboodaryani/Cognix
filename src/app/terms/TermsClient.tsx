@@ -223,7 +223,7 @@ export default function TermsClient() {
               </div>
               <div style={{ color: "var(--text-body)", fontSize: "0.9375rem", lineHeight: 1.6 }}>
                 <div><strong>Location:</strong> New Delhi, India</div>
-                <div><strong>Contact Email:</strong> [hello@cognixs.in]</div>
+                <div><strong>Contact Email:</strong> [work.cognixs@gmail.com]</div>
                 <div><strong>Website:</strong> [cognixs.in]</div>
               </div>
             </div>
