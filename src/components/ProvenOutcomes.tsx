@@ -16,7 +16,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "OpenTreatment — Healthcare",
       category: "Mobile",
-      metric: "15,000+ Consultations · 100% HIPAA",
+      metric: "~1,200+ Consultations · HIPAA Compliant",
       desc: "Healthcare platform helping patients find and reach verified doctors, hospitals, and diagnostic labs across web and mobile.",
       badge: "LIVE & ON STORE",
       stack: "Next.js · React Native · Node.js · PostgreSQL",
@@ -25,7 +25,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "Multi-Tenant SaaS CRM",
       category: "SaaS & CRM",
-      metric: "150+ Enterprise Tenants · < 80ms RLS Query",
+      metric: "24 Business Tenants · RLS Partitioned",
       desc: "Cloud multi-tenant CRM engine with dynamic PostgreSQL Row-Level Security tenant isolation, automated SSL domain routing, RBAC user admin, and real-time telemetry.",
       badge: "MULTI-TENANT SAAS",
       stack: "Next.js · Node.js · PostgreSQL (RLS) · Redis · BullMQ · Docker",
@@ -34,7 +34,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "TicketCRM — Helpdesk Support",
       category: "SaaS & CRM",
-      metric: "453 Inflow · 34h MTTR · 99.2% SLA",
+      metric: "~280 Monthly Inflow · 3.5h MTTR · SLA Monitored",
       desc: "SLA-driven enterprise ticketing platform with BullMQ routing, business-hour tracking, and real-time queues.",
       badge: "ENTERPRISE SUPPORT",
       stack: "React · Node.js · Express · Redis · BullMQ · Socket.IO",
@@ -43,7 +43,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "Pick4U — Hyperlocal Delivery",
       category: "Websites",
-      metric: "10K+ Customers · 30min Avg Delivery",
+      metric: "~1,400+ Orders Handled · On-Demand Dispatch",
       desc: "Fast, reliable on-demand intra-city delivery platform with live parcel dispatch, transparent pricing tiers, and automated routing.",
       badge: "HYPERLOCAL LOGISTICS",
       stack: "Next.js · React · Tailwind CSS · Node.js · Express",
@@ -52,7 +52,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "Makaan Marketplace API",
       category: "Websites",
-      metric: "5,000+ Listings · < 200ms Latency",
+      metric: "~650 Active Listings · Optimized Search",
       desc: "High-throughput real-estate marketplace API connecting builders, dealers, and buyers with automated Sharp S3 image compression.",
       badge: "SCALABLE API",
       stack: "Node.js · Express · PostgreSQL · Sequelize · AWS S3",
@@ -61,7 +61,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "Katan Saree Storefront",
       category: "Websites",
-      metric: "3.4x Mobile Conv · 850ms LCP",
+      metric: "+26% Mobile Conversion · Fast Web UX",
       desc: "High-performance luxury saree digital storefront engineered for global customers with multi-currency checkout and sub-second speed.",
       badge: "GLOBAL D2C",
       stack: "React · Redux · Tailwind · Stripe",
@@ -70,7 +70,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "Ember Events Jaipur",
       category: "Websites",
-      metric: "120+ Curated Weddings · 4.9 CSAT",
+      metric: "~28 Curated Celebrations · High Client Satisfaction",
       desc: "Bespoke wedding and experiential event booking platform for premier Rajasthan celebration management.",
       badge: "SHOWCASE PORTAL",
       stack: "React · JavaScript · CSS · Vercel",
@@ -79,7 +79,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "Music Ed-Tech Platform",
       category: "Websites",
-      metric: "Sub-25ms Audio · 98 Lighthouse",
+      metric: "Interactive Audio · Fluid Navigation",
       desc: "Modern and interactive music learning platform built with Next.js, TypeScript, Aceternity UI, and real-time audio modules.",
       badge: "INTERACTIVE EDTECH",
       stack: "Next.js · TypeScript · Aceternity UI · Tailwind",
@@ -88,7 +88,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "FINEbuddy Financial Dashboard",
       category: "Design",
-      metric: "Sub-Second Data UX · 0.4s Query",
+      metric: "Responsive FinTech UX · Clear Analytics",
       desc: "Personal finance and investment management dashboard turning dense financial analytics into clear, confident daily decision-making tools.",
       badge: "FINTECH PRODUCT",
       stack: "Product Design · Dashboard · Data UX",
@@ -97,7 +97,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
     {
       title: "Hit It! Fitness Gamification",
       category: "Mobile",
-      metric: "+64% Daily Workout Retention",
+      metric: "+18% Daily Workout Retention",
       desc: "Product design and gamification system using habit loops, streaks, and tactile micro-interactions to lift workout engagement.",
       badge: "MOBILE UX",
       stack: "Product Design · UX Architecture · Mobile",
@@ -118,7 +118,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
       title: "CODEDECK Real-Time Platform",
       category: "Websites",
       metric: "Real-Time Multi-Cursor Sync",
-      desc: "Developer-focused web platform for collaborative code editing, syntax evaluation, and zero-latency live paired programming.",
+      desc: "Developer-focused web platform for collaborative code editing, syntax evaluation, and real-time live paired programming.",
       badge: "DEV PLATFORM",
       stack: "Web Design · UI Systems · Product",
       icon: Globe,

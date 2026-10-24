@@ -6,10 +6,11 @@ import { X, Check, ArrowRight, Sparkles, MessageSquare, Clock, Zap } from "lucid
 interface ProjectBookingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialService?: string;
 }
 
-export default function ProjectBookingModal({ isOpen, onClose }: ProjectBookingModalProps) {
-  const [selectedService, setSelectedService] = useState("Websites & Web Apps");
+export default function ProjectBookingModal({ isOpen, onClose, initialService }: ProjectBookingModalProps) {
+  const [selectedService, setSelectedService] = useState(initialService || "AI Agents & Autonomous Workflows");
   const [timeline, setTimeline] = useState("2-4 Weeks (Fast Track)");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,14 +18,23 @@ export default function ProjectBookingModal({ isOpen, onClose }: ProjectBookingM
   const [notes, setNotes] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  React.useEffect(() => {
+    if (initialService) {
+      setSelectedService(initialService);
+    }
+  }, [initialService, isOpen]);
+
   if (!isOpen) return null;
 
   const services = [
-    "Websites & Web Apps",
-    "Cross-Platform Mobile",
-    "Bespoke AI / LLM Agents",
-    "End-to-End Automation",
-    "Full Technical Co-Founder",
+    "Intelligent WhatsApp & Web AI Chatbots",
+    "AI Voice Agents & Autonomous Calling",
+    "RAG Knowledge Bases & Internal Doc AI",
+    "Document OCR & Invoice Intelligence",
+    "Enterprise Web & Multi-Tenant SaaS",
+    "Cross-Platform Native Mobile Apps",
+    "Business Process & ERP/CRM Automation",
+    "Support & Engineering Retainer",
   ];
 
   const timelines = [

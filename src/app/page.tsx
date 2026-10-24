@@ -23,6 +23,14 @@ import { scrollToSection } from "@/utils/scroll";
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<string | undefined>(undefined);
+
+  const handleOpenBooking = (service?: string) => {
+    if (service) {
+      setSelectedService(service);
+    }
+    setIsBookingOpen(true);
+  };
 
   useEffect(() => {
     // If URL has a hashtag on load, remove it immediately to keep address bar clean
@@ -48,17 +56,17 @@ export default function Home() {
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* Global Navigation Header */}
-      <Navbar onOpenBooking={() => setIsBookingOpen(true)} />
+      <Navbar onOpenBooking={() => handleOpenBooking()} />
 
       <main style={{ flex: 1 }}>
         {/* Hero Section with Live Telemetry & Clear Proposition */}
-        <Hero onOpenBooking={() => setIsBookingOpen(true)} />
+        <Hero onOpenBooking={() => handleOpenBooking()} />
 
         {/* Ecosystem & Integration Marquee */}
         <BrandMarquee />
 
-        {/* 4 Core Offerings Services Bento */}
-        <ServicesBento onOpenBooking={() => setIsBookingOpen(true)} />
+        {/* 6 Core Offerings & IT Services Bento */}
+        <ServicesBento onOpenBooking={(service) => handleOpenBooking(service)} />
 
         {/* Live Automation Pipeline Visualizer (Interactive Showpiece) */}
         <AutomationVisualizer />
@@ -104,6 +112,7 @@ export default function Home() {
       <ProjectBookingModal
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
+        initialService={selectedService}
       />
     </div>
   );
