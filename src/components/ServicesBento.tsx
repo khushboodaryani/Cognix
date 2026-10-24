@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import {
   MessageSquare,
   PhoneCall,
@@ -96,7 +97,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
               marginBottom: "12px",
             }}
           >
-            OUR SERVICES & IT SOLUTIONS
+            OUR SERVICES
           </div>
           <h2
             style={{
@@ -108,7 +109,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
               marginBottom: "14px",
             }}
           >
-            What we build. Precisely scoped, rapidly delivered.
+            What we build, and how we price it.
           </h2>
           <p
             style={{
@@ -118,7 +119,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
               maxWidth: "680px",
             }}
           >
-            From custom WhatsApp chatbots and AI voice agents to enterprise web platforms, Tally ERP automation, and 24/7 dedicated support retainers.
+            From WhatsApp chatbots and AI assistants to websites, mobile apps and business automation, with ongoing support after launch.
           </p>
         </div>
 

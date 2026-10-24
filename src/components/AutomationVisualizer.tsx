@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { scrollToSection } from "@/utils/scroll";
 import { Play, CheckCircle2, ArrowRight, Zap, RefreshCw, Send, ShieldAlert, Cpu } from "lucide-react";
 
 export default function AutomationVisualizer() {
@@ -325,6 +327,69 @@ export default function AutomationVisualizer() {
             >
               <code>{nodes[selectedNode].payload}</code>
             </pre>
+          </div>
+        </div>
+
+        {/* Full-Width Pricing & Scoping Highlight Box */}
+        <div
+          style={{
+            marginTop: "36px",
+            display: "flex",
+            alignItems: "center",
+            gap: "16px",
+            padding: "16px 24px",
+            borderRadius: "16px",
+            backgroundColor: "var(--bg-card)",
+            border: "1px solid var(--border-subtle)",
+            boxShadow: "var(--shadow-sm)",
+            flexWrap: "wrap",
+            width: "100%",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "5px 14px",
+              borderRadius: "9999px",
+              backgroundColor: "var(--accent-primary)",
+              color: "#101311",
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.8rem",
+              fontWeight: 800,
+              letterSpacing: "0.03em",
+              whiteSpace: "nowrap",
+            }}
+          >
+            PRICED FOR YOUR PROJECT
+          </span>
+          <div
+            style={{
+              fontSize: "0.92rem",
+              color: "var(--text-body)",
+              lineHeight: 1.55,
+              flex: 1,
+              minWidth: "280px",
+            }}
+          >
+            Clear, fixed quotes. Every business needs something different, so we don&apos;t do one-size-fits-all pricing. Tell us what you need on a free 20-minute call, and you&apos;ll get a fixed quote with clear milestones. No hidden charges, no surprise invoices.{" "}
+            <Link
+              href="/#contact"
+              onClick={() => scrollToSection("contact")}
+              style={{
+                color: "var(--text-heading)",
+                fontWeight: 600,
+                textDecoration: "underline",
+                textUnderlineOffset: "3px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "2px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Get your quote &rarr;
+            </Link>
           </div>
         </div>
       </div>

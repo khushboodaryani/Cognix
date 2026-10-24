@@ -30,6 +30,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     { label: "Process", targetId: "process" },
     { label: "Compare", targetId: "comparison" },
     { label: "Team", targetId: "team" },
+    { label: "About", href: "/about" },
     { label: "FAQ", targetId: "faq" },
   ];
 
@@ -80,28 +81,48 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           }}
           className="desktop-nav-links"
         >
-          {navLinks.map((link) => (
-            <button
-              key={link.label}
-              type="button"
-              onClick={() => handleNavClick(link.targetId)}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: "4px 2px",
-                fontFamily: "var(--font-display)",
-                fontSize: "0.875rem",
-                fontWeight: 500,
-                color: "var(--text-heading)",
-                transition: "color 0.15s ease",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#4D7C0F")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-heading)")}
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) =>
+            link.href ? (
+              <Link
+                key={link.label}
+                href={link.href}
+                style={{
+                  textDecoration: "none",
+                  padding: "4px 2px",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  color: "var(--text-heading)",
+                  transition: "color 0.15s ease",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#4D7C0F")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-heading)")}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <button
+                key={link.label}
+                type="button"
+                onClick={() => handleNavClick(link.targetId!)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: "4px 2px",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  color: "var(--text-heading)",
+                  transition: "color 0.15s ease",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#4D7C0F")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-heading)")}
+              >
+                {link.label}
+              </button>
+            )
+          )}
         </nav>
 
         {/* Right CTA & Controls */}
@@ -167,27 +188,48 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
             gap: "14px",
           }}
         >
-          {navLinks.map((link) => (
-            <button
-              key={link.label}
-              type="button"
-              onClick={() => handleNavClick(link.targetId)}
-              style={{
-                background: "none",
-                border: "none",
-                textAlign: "left",
-                cursor: "pointer",
-                fontFamily: "var(--font-display)",
-                fontSize: "1rem",
-                fontWeight: 600,
-                color: "var(--text-heading)",
-                padding: "8px 0",
-                borderBottom: "1px solid var(--border-subtle)",
-              }}
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) =>
+            link.href ? (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  textDecoration: "none",
+                  display: "block",
+                  textAlign: "left",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  color: "var(--text-heading)",
+                  padding: "8px 0",
+                  borderBottom: "1px solid var(--border-subtle)",
+                }}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <button
+                key={link.label}
+                type="button"
+                onClick={() => handleNavClick(link.targetId!)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  textAlign: "left",
+                  cursor: "pointer",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  color: "var(--text-heading)",
+                  padding: "8px 0",
+                  borderBottom: "1px solid var(--border-subtle)",
+                }}
+              >
+                {link.label}
+              </button>
+            )
+          )}
           <a
             href="https://wa.me/916396880866?text=Hi%20Cognixs!%20I%20want%20to%20start%20a%20new%20project%20(Website%20/%20App%20/%20AI%20Automation).%20Let's%20discuss%20requirements%20and%20timeline."
             target="_blank"

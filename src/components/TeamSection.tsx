@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Check, ArrowUpRight } from "lucide-react";
 
 interface TeamSectionProps {
@@ -152,152 +153,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
           }}
           className="team-cards-grid"
         >
-          {/* Card 1: Lalit Chaudhary */}
-          <div
-            className="studio-card team-card"
-            style={{
-              padding: "36px 32px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              borderRadius: "24px",
-              height: "100%",
-            }}
-          >
-            <div>
-              {/* Profile Top Row */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "20px",
-                  marginBottom: "20px",
-                }}
-              >
-                <TeamAvatar
-                  src="/team/lalit.jpg"
-                  alt="Lalit Chaudhary"
-                  initials="LC"
-                  objectPosition="center 42%"
-                />
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <h3
-                    style={{
-                      fontSize: "1.375rem",
-                      fontWeight: 700,
-                      color: "var(--text-heading)",
-                      lineHeight: 1.25,
-                      marginBottom: "4px",
-                    }}
-                  >
-                    Lalit Chaudhary
-                  </h3>
-                  <div
-                    style={{
-                      fontSize: "0.875rem",
-                      color: "var(--text-muted)",
-                      fontWeight: 500,
-                      marginBottom: "10px",
-                    }}
-                  >
-                    Founder · Full-Stack Developer
-                  </div>
-                  <div
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      backgroundColor: "var(--accent-lime-subtle)",
-                      border: "1px solid var(--accent-lime-border)",
-                      color: "var(--accent-forest)",
-                      padding: "4px 12px",
-                      borderRadius: "9999px",
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      fontFamily: "var(--font-mono)",
-                    }}
-                  >
-                    3+ years · 20+ projects delivered
-                  </div>
-                </div>
-              </div>
-
-              {/* Bio */}
-              <p
-                style={{
-                  fontSize: "0.875rem",
-                  color: "var(--text-body)",
-                  lineHeight: 1.65,
-                  marginBottom: "24px",
-                }}
-              >
-                Full-stack developer with 3+ years of freelancing experience and 20+ projects delivered for clients. Builds web and mobile products end to end, from first screen to launch. Also leads tech at OpenTreatment, a healthcare platform live on the web and Google Play.
-              </p>
-
-              {/* Skills Chips */}
-              <div style={{ marginBottom: "28px" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "8px",
-                  }}
-                >
-                  {["Next.js", "React Native", "Node.js", "PostgreSQL", "AI & Automation"].map((skill) => (
-                    <span
-                      key={skill}
-                      style={{
-                        fontSize: "0.75rem",
-                        padding: "4px 11px",
-                        borderRadius: "8px",
-                        border: "1px solid var(--border-subtle)",
-                        backgroundColor: "var(--bg-card-subtle)",
-                        color: "var(--text-heading)",
-                        fontFamily: "var(--font-mono)",
-                        fontWeight: 500,
-                      }}
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Links / Icon Buttons */}
-            <div
-              style={{
-                paddingTop: "20px",
-                borderTop: "1px solid var(--border-subtle)",
-                display: "flex",
-                alignItems: "center",
-                gap: "12px",
-              }}
-            >
-              <a
-                href="https://www.linkedin.com/in/lalit-chaudhary-1a816a21b/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Lalit Chaudhary on LinkedIn"
-                className="team-icon-btn"
-                title="LinkedIn"
-              >
-                <LinkedInIcon size={17} />
-              </a>
-              <a
-                href="https://github.com/Lalitchaudhary01"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Lalit Chaudhary on GitHub"
-                className="team-icon-btn"
-                title="GitHub"
-              >
-                <GitHubIcon size={17} />
-              </a>
-            </div>
-          </div>
-
-          {/* Card 2: Khushboo Daryani */}
+          {/* Card 1: Khushboo Daryani */}
           <div
             className="studio-card team-card"
             style={{
@@ -345,7 +201,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
                       marginBottom: "10px",
                     }}
                   >
-                    Full-Stack Developer · Mobile &amp; Web
+                    Founder · Full-Stack Developer
                   </div>
                   <div
                     style={{
@@ -441,6 +297,172 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
               </a>
             </div>
           </div>
+
+          {/* Card 2: Lalit Chaudhary */}
+          <div
+            className="studio-card team-card"
+            style={{
+              padding: "36px 32px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              borderRadius: "24px",
+              height: "100%",
+            }}
+          >
+            <div>
+              {/* Profile Top Row */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "20px",
+                  marginBottom: "20px",
+                }}
+              >
+                <TeamAvatar
+                  src="/team/lalit.jpg"
+                  alt="Lalit Chaudhary"
+                  initials="LC"
+                  objectPosition="center 42%"
+                />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <h3
+                    style={{
+                      fontSize: "1.375rem",
+                      fontWeight: 700,
+                      color: "var(--text-heading)",
+                      lineHeight: 1.25,
+                      marginBottom: "4px",
+                    }}
+                  >
+                    Lalit Chaudhary
+                  </h3>
+                  <div
+                    style={{
+                      fontSize: "0.875rem",
+                      color: "var(--text-muted)",
+                      fontWeight: 500,
+                      marginBottom: "10px",
+                    }}
+                  >
+                    Full-Stack Developer
+                  </div>
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      backgroundColor: "var(--accent-lime-subtle)",
+                      border: "1px solid var(--accent-lime-border)",
+                      color: "var(--accent-forest)",
+                      padding: "4px 12px",
+                      borderRadius: "9999px",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      fontFamily: "var(--font-mono)",
+                    }}
+                  >
+                    3+ years · 20+ projects delivered
+                  </div>
+                </div>
+              </div>
+
+              {/* Bio */}
+              <p
+                style={{
+                  fontSize: "0.875rem",
+                  color: "var(--text-body)",
+                  lineHeight: 1.65,
+                  marginBottom: "24px",
+                }}
+              >
+                Full-stack developer with 3+ years of freelancing experience and 20+ projects delivered for clients. Builds web and mobile products end to end, from first screen to launch. Also leads tech at OpenTreatment, a healthcare platform live on the web and Google Play.
+              </p>
+
+              {/* Skills Chips */}
+              <div style={{ marginBottom: "28px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "8px",
+                  }}
+                >
+                  {["Next.js", "React Native", "Node.js", "PostgreSQL", "AI & Automation"].map((skill) => (
+                    <span
+                      key={skill}
+                      style={{
+                        fontSize: "0.75rem",
+                        padding: "4px 11px",
+                        borderRadius: "8px",
+                        border: "1px solid var(--border-subtle)",
+                        backgroundColor: "var(--bg-card-subtle)",
+                        color: "var(--text-heading)",
+                        fontFamily: "var(--font-mono)",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Links / Icon Buttons */}
+            <div
+              style={{
+                paddingTop: "20px",
+                borderTop: "1px solid var(--border-subtle)",
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+              }}
+            >
+              <a
+                href="https://www.linkedin.com/in/lalit-chaudhary-1a816a21b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Lalit Chaudhary on LinkedIn"
+                className="team-icon-btn"
+                title="LinkedIn"
+              >
+                <LinkedInIcon size={17} />
+              </a>
+              <a
+                href="https://github.com/Lalitchaudhary01"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Lalit Chaudhary on GitHub"
+                className="team-icon-btn"
+                title="GitHub"
+              >
+                <GitHubIcon size={17} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Read Our Full Story Link */}
+        <div style={{ textAlign: "center", marginTop: "28px" }}>
+          <Link
+            href="/about"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              fontSize: "0.9375rem",
+              fontWeight: 600,
+              color: "var(--text-heading)",
+              textDecoration: "none",
+              transition: "color 0.15s ease",
+            }}
+            className="team-story-link"
+          >
+            <span>Read our full story</span>
+            <span>&rarr;</span>
+          </Link>
         </div>
 
         {/* Stats Strip Below Cards */}

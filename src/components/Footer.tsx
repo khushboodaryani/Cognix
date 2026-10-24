@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import CognixsLogo from "./CognixsLogo";
 import { ArrowUpRight } from "lucide-react";
 import { scrollToSection } from "@/utils/scroll";
@@ -193,9 +194,9 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => scrollToSection("about")} className="footer-nav-link footer-btn-link">
+                <Link href="/about" className="footer-nav-link">
                   About Us
-                </button>
+                </Link>
               </li>
               <li>
                 <a
@@ -285,13 +286,13 @@ export default function Footer() {
         >
           <div>© 2025 Cognixs Studio (cognixs.in). All rights reserved.</div>
           <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-            <a href="/privacy" className="footer-legal-link">
+            <Link href="/privacy" className="footer-legal-link">
               Privacy Policy
-            </a>
+            </Link>
             <span style={{ opacity: 0.4 }}>•</span>
-            <a href="/terms" className="footer-legal-link">
+            <Link href="/terms" className="footer-legal-link">
               Terms of Service
-            </a>
+            </Link>
           </div>
           <div>Crafted for high-velocity teams.</div>
         </div>
