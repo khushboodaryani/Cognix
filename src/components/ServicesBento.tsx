@@ -1,20 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
-import { Globe, Smartphone, Bot, Workflow, ArrowUpRight, Check, Zap, Sparkles } from "lucide-react";
+import React from "react";
+import { Globe, ArrowUpRight, Sparkles } from "lucide-react";
+import { scrollToSection } from "@/utils/scroll";
 
 interface ServicesBentoProps {
   onOpenBooking: () => void;
 }
 
 export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
-  const [chatMessage, setChatMessage] = useState("Summarize today's order trends for store #104");
+  const handleScrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    scrollToSection("contact");
+  };
 
   return (
     <section id="services" className="section-padding" style={{ position: "relative" }}>
       <div className="container-custom">
         {/* Section Header */}
-        <div style={{ maxWidth: "640px", marginBottom: "48px" }}>
+        <div style={{ maxWidth: "680px", marginBottom: "48px" }}>
           <div
             style={{
               fontFamily: "var(--font-display)",
@@ -36,11 +40,11 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
               color: "var(--text-heading)",
             }}
           >
-            Engineered for speed, built for scale.
+            Everything you need to go digital, under one roof.
           </h2>
         </div>
 
-        {/* 4 Core Offerings Bento Grid (Matches Screenshot 2) */}
+        {/* 4 Core Offerings Bento Grid */}
         <div
           style={{
             display: "grid",
@@ -48,7 +52,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
             gap: "24px",
           }}
         >
-          {/* 1. Websites & Web Platforms (Width: 7 cols) */}
+          {/* 1. WEBSITES (Width: 7 cols) */}
           <div
             className="studio-card service-col-7"
             style={{
@@ -78,7 +82,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     letterSpacing: "0.06em",
                   }}
                 >
-                  FAST DELIVERY / 2-3 WEEKS
+                  WEBSITES
                 </span>
                 <span
                   style={{
@@ -92,12 +96,12 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     color: "var(--text-heading)",
                   }}
                 >
-                  High Conversion
+                  Mobile-first
                 </span>
               </div>
 
-              <h3 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "10px" }}>
-                Websites & Platforms
+              <h3 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "10px", color: "var(--text-heading)" }}>
+                Websites that bring you customers
               </h3>
               <p
                 style={{
@@ -108,7 +112,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   maxWidth: "520px",
                 }}
               >
-                Optimizing flow, conversion pipelines, and bespoke software design to eliminate manual admin overhead, and lower customer acquisition costs. Sub-second load times with Next.js App Router.
+                Custom-designed, fast websites with enquiry forms and WhatsApp built in. Easy for you to update after launch.
               </p>
             </div>
 
@@ -135,13 +139,13 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                 <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#CBD5E1" }} />
                 <span
                   style={{
-                    fontSize: "0.7rem",
+                    fontSize: "0.75rem",
                     color: "var(--text-muted)",
                     marginLeft: "8px",
                     fontFamily: "var(--font-mono)",
                   }}
                 >
-                  [Project client preview] · 99/100 Lighthouse
+                  yourbusiness.com
                 </span>
               </div>
 
@@ -153,6 +157,9 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
+                  border: "1px solid var(--border-subtle)",
+                  flexWrap: "wrap",
+                  gap: "10px",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -165,30 +172,32 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
+                      flexShrink: 0,
                     }}
                   >
                     <Globe size={18} color="#101311" />
                   </div>
                   <div>
                     <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--text-heading)" }}>
-                      Omnichannel D2C Storefront
+                      New enquiry received
                     </div>
                     <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>
-                      Razorpay Checkout · 0.8s LCP
+                      From your website contact form
                     </div>
                   </div>
                 </div>
                 <div
                   style={{
-                    backgroundColor: "var(--badge-bg)",
-                    color: "var(--badge-text)",
-                    padding: "4px 8px",
+                    backgroundColor: "rgba(199, 243, 107, 0.2)",
+                    color: "#166534",
+                    border: "1px solid rgba(199, 243, 107, 0.5)",
+                    padding: "4px 10px",
                     borderRadius: "6px",
                     fontSize: "0.75rem",
                     fontWeight: 700,
                   }}
                 >
-                  +184% Orders
+                  WhatsApp alert sent
                 </div>
               </div>
             </div>
@@ -203,10 +212,11 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
               }}
             >
               <span style={{ fontSize: "0.8rem", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
-                Build time: 2-3 weeks (Fixed scope)
+                Typical timeline: 2 to 4 weeks
               </span>
-              <button
-                onClick={onOpenBooking}
+              <a
+                href="#contact"
+                onClick={handleScrollToContact}
                 style={{
                   background: "transparent",
                   border: "none",
@@ -218,14 +228,15 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "4px",
+                  textDecoration: "none",
                 }}
               >
-                Scope Website <ArrowUpRight size={14} />
-              </button>
+                Discuss a website <ArrowUpRight size={14} />
+              </a>
             </div>
           </div>
 
-          {/* 2. Mobile Apps (Width: 5 cols) */}
+          {/* 2. MOBILE APPS (Width: 5 cols) */}
           <div
             className="studio-card service-col-5"
             style={{
@@ -254,7 +265,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     letterSpacing: "0.06em",
                   }}
                 >
-                  FAST DELIVERY / 3-4 WEEKS
+                  MOBILE APPS
                 </span>
                 <span
                   style={{
@@ -268,12 +279,12 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     color: "var(--text-heading)",
                   }}
                 >
-                  iOS & Android
+                  Android &amp; iOS
                 </span>
               </div>
 
-              <h3 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "10px" }}>
-                Mobile Apps
+              <h3 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "10px", color: "var(--text-heading)" }}>
+                Apps your users actually enjoy
               </h3>
               <p
                 style={{
@@ -283,11 +294,11 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   marginBottom: "24px",
                 }}
               >
-                Fluid, native-level cross-platform experiences with real-time sync, offline storage, and modern UPI / biometric payment integrations.
+                Android and iOS apps from one codebase, with simple screens, secure logins and payments. We handle the Play Store and App Store launch.
               </p>
             </div>
 
-            {/* Smartphone Mockup Frame Matching Screenshot 2 */}
+            {/* Smartphone Mockup Frame */}
             <div
               style={{
                 width: "100%",
@@ -318,9 +329,9 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   border: "1px solid var(--border-subtle)",
                 }}
               >
-                <div style={{ fontSize: "0.65rem", color: "var(--text-muted)" }}>FinPulse UPI Wallet</div>
-                <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-heading)", fontFamily: "var(--font-mono)" }}>
-                  ₹ 1,48,200
+                <div style={{ fontSize: "0.65rem", color: "var(--text-muted)" }}>Your app</div>
+                <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-heading)", fontFamily: "var(--font-display)" }}>
+                  Booking confirmed
                 </div>
                 <div
                   style={{
@@ -336,13 +347,14 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
+                  alignItems: "center",
                   padding: "4px 8px",
                   fontSize: "0.65rem",
                   color: "var(--text-muted)",
                 }}
               >
-                <span>Offline Sync: Active</span>
-                <span style={{ color: "#16A34A", fontWeight: 700 }}>60 FPS</span>
+                <span>Order tracking: Live</span>
+                <span style={{ color: "#16A34A", fontWeight: 700 }}>UPI</span>
               </div>
             </div>
 
@@ -356,10 +368,11 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
               }}
             >
               <span style={{ fontSize: "0.8rem", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
-                Build time: 3-4 weeks
+                Typical timeline: 4 to 8 weeks
               </span>
-              <button
-                onClick={onOpenBooking}
+              <a
+                href="#contact"
+                onClick={handleScrollToContact}
                 style={{
                   background: "transparent",
                   border: "none",
@@ -371,14 +384,15 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "4px",
+                  textDecoration: "none",
                 }}
               >
-                Scope App <ArrowUpRight size={14} />
-              </button>
+                Discuss an app <ArrowUpRight size={14} />
+              </a>
             </div>
           </div>
 
-          {/* 3. AI Solutions (Width: 6 cols) */}
+          {/* 3. AI SOLUTIONS (Width: 6 cols) */}
           <div
             className="studio-card service-col-6"
             style={{
@@ -407,7 +421,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     letterSpacing: "0.06em",
                   }}
                 >
-                  CUSTOM AI / 2-3 WEEKS
+                  AI SOLUTIONS
                 </span>
                 <span
                   style={{
@@ -420,12 +434,12 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     fontWeight: 700,
                   }}
                 >
-                  LLM AGENTS
+                  24/7 replies
                 </span>
               </div>
 
-              <h3 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "10px" }}>
-                AI Solutions & Agents
+              <h3 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "10px", color: "var(--text-heading)" }}>
+                AI that answers customers, even at 2 AM
               </h3>
               <p
                 style={{
@@ -435,11 +449,11 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   marginBottom: "24px",
                 }}
               >
-                Bespoke LLM agents, automated document extraction, and tailored knowledge retrieval trained on your proprietary business datasets.
+                WhatsApp and website chatbots trained on your products, prices and FAQs. Plus AI that reads documents and invoices so your team doesn&apos;t have to.
               </p>
             </div>
 
-            {/* Interactive Chat Preview */}
+            {/* Chat Preview */}
             <div
               style={{
                 backgroundColor: "var(--bg-inset)",
@@ -449,6 +463,20 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                 marginBottom: "20px",
               }}
             >
+              <div
+                style={{
+                  fontSize: "0.7rem",
+                  color: "var(--text-muted)",
+                  fontFamily: "var(--font-mono)",
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                  marginBottom: "8px",
+                }}
+              >
+                Example conversation
+              </div>
+
               <div
                 style={{
                   backgroundColor: "var(--bg-card)",
@@ -461,9 +489,9 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                 }}
               >
                 <div style={{ fontSize: "0.7rem", color: "var(--text-muted)", marginBottom: "2px" }}>
-                  User query via WhatsApp:
+                  Customer on WhatsApp:
                 </div>
-                &quot;{chatMessage}&quot;
+                &quot;Is the 2BHK in Sector 62 still available?&quot;
               </div>
 
               <div
@@ -481,10 +509,10 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
               >
                 <Sparkles size={16} style={{ color: "#4D7C0F", flexShrink: 0, marginTop: "2px" }} />
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: "0.75rem", color: "#2D4A1D" }}>
-                    Cognixs Agent (0.64s latency):
+                  <div style={{ fontWeight: 700, fontSize: "0.75rem", color: "#2D4A1D", marginBottom: "2px" }}>
+                    Your AI assistant:
                   </div>
-                  Found 412 completed orders. Peak volume occurred at 14:30 IST. GST invoices synced to Tally.
+                  &quot;Yes! It&apos;s available from 1 December. Would you like to book a site visit this weekend?&quot;
                 </div>
               </div>
             </div>
@@ -499,10 +527,11 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
               }}
             >
               <span style={{ fontSize: "0.8rem", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
-                Build time: 2-3 weeks (API & Webhook)
+                Typical timeline: 2 to 4 weeks
               </span>
-              <button
-                onClick={onOpenBooking}
+              <a
+                href="#contact"
+                onClick={handleScrollToContact}
                 style={{
                   background: "transparent",
                   border: "none",
@@ -514,14 +543,15 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "4px",
+                  textDecoration: "none",
                 }}
               >
-                Scope AI Agent <ArrowUpRight size={14} />
-              </button>
+                Discuss an AI solution <ArrowUpRight size={14} />
+              </a>
             </div>
           </div>
 
-          {/* 4. End-to-End Automation (Width: 6 cols) */}
+          {/* 4. AUTOMATION (Width: 6 cols) */}
           <div
             className="studio-card service-col-6"
             style={{
@@ -550,7 +580,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     letterSpacing: "0.06em",
                   }}
                 >
-                  ZERO MANUAL WORK
+                  AUTOMATION
                 </span>
                 <span
                   style={{
@@ -564,12 +594,12 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     color: "var(--text-heading)",
                   }}
                 >
-                  Operational Ops
+                  No more copy-paste
                 </span>
               </div>
 
-              <h3 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "10px" }}>
-                Workflow Automation
+              <h3 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "10px", color: "var(--text-heading)" }}>
+                Stop doing the same task twice
               </h3>
               <p
                 style={{
@@ -579,7 +609,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   marginBottom: "24px",
                 }}
               >
-                Connect seamless workflows eliminating repetitive human steps between your communication, databases, and invoicing channels.
+                New leads saved automatically, reminders and invoices sent on time, and your tools (WhatsApp, Zoho, Tally, Google Sheets) finally talking to each other.
               </p>
             </div>
 
@@ -610,9 +640,10 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     borderRadius: "8px",
                     fontSize: "0.75rem",
                     fontWeight: 600,
+                    color: "var(--text-heading)",
                   }}
                 >
-                  Lead Ingest
+                  New lead
                 </div>
                 <div style={{ color: "var(--text-muted)" }}>&rarr;</div>
                 <div
@@ -623,9 +654,10 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     borderRadius: "8px",
                     fontSize: "0.75rem",
                     fontWeight: 600,
+                    color: "var(--text-heading)",
                   }}
                 >
-                  OpenAI Parse
+                  Saved to CRM
                 </div>
                 <div style={{ color: "var(--text-muted)" }}>&rarr;</div>
                 <div
@@ -638,7 +670,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     fontWeight: 700,
                   }}
                 >
-                  WhatsApp API
+                  WhatsApp reply
                 </div>
                 <div style={{ color: "var(--text-muted)" }}>&rarr;</div>
                 <div
@@ -649,9 +681,10 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                     borderRadius: "8px",
                     fontSize: "0.75rem",
                     fontWeight: 600,
+                    color: "var(--text-heading)",
                   }}
                 >
-                  Tally ERP
+                  Invoice in Tally
                 </div>
               </div>
             </div>
@@ -666,10 +699,11 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
               }}
             >
               <span style={{ fontSize: "0.8rem", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
-                Build time: 1-2 weeks (Instant ROI)
+                Typical timeline: 1 to 3 weeks
               </span>
-              <button
-                onClick={onOpenBooking}
+              <a
+                href="#contact"
+                onClick={handleScrollToContact}
                 style={{
                   background: "transparent",
                   border: "none",
@@ -681,10 +715,11 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "4px",
+                  textDecoration: "none",
                 }}
               >
-                Scope Automation <ArrowUpRight size={14} />
-              </button>
+                Discuss an automation <ArrowUpRight size={14} />
+              </a>
             </div>
           </div>
         </div>

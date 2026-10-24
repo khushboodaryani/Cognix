@@ -25,8 +25,8 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
 
   const navLinks = [
     { label: "Services", targetId: "services" },
-    { label: "Industries", targetId: "industries" },
     { label: "Work", targetId: "work" },
+    { label: "Industries", targetId: "industries" },
     { label: "Process", targetId: "process" },
     { label: "Compare", targetId: "comparison" },
     { label: "Team", targetId: "team" },

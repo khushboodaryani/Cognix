@@ -60,16 +60,18 @@ export default function Hero({ onOpenBooking }: HeroProps) {
         {/* Master Headline */}
         <h1
           style={{
-            fontSize: "clamp(2.4rem, 5.5vw, 4.4rem)",
+            fontSize: "clamp(2.2rem, 5vw, 4.2rem)",
             fontWeight: 800,
-            lineHeight: 1.08,
+            lineHeight: 1.15,
             letterSpacing: "-0.04em",
-            maxWidth: "960px",
+            maxWidth: "1020px",
             margin: "0 auto 20px",
             color: "var(--text-heading)",
           }}
         >
-          We’ve already made the mistakes. You get{" "}
+          <span style={{ display: "block" }}>
+            Your business runs on WhatsApp and Excel.
+          </span>
           <span
             style={{
               display: "inline-block",
@@ -79,9 +81,10 @@ export default function Hero({ onOpenBooking }: HeroProps) {
               borderRadius: "16px",
               transform: "rotate(-1deg)",
               boxShadow: "0 4px 14px rgba(199, 243, 107, 0.35)",
+              marginTop: "8px",
             }}
           >
-            the results.
+            Let&apos;s fix that.
           </span>
         </h1>
 
@@ -95,7 +98,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             color: "var(--text-body)",
           }}
         >
-          We engineer intelligent automation systems, AI agents, enterprise software, and modern digital experiences that cut busywork and work while you sleep.
+          We build websites, apps and automations that take the repetitive work off your plate, so you can focus on growing.
         </p>
 
         {/* CTAs */}

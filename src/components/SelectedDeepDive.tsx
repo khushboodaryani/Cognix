@@ -16,65 +16,65 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
   const projects = [
     {
       title: "OpenTreatment",
-      client: "OpenTreatment — Healthcare Platform",
-      industry: "Healthcare & Telemedicine Network",
+      client: "OpenTreatment, healthcare platform",
+      industry: "HEALTHCARE",
       problem:
-        "Patients and clinical providers struggled with fragmented offline doctor scheduling, delayed lab report turnarounds, and unverified credentials causing 45-minute clinic queues and HIPAA compliance vulnerabilities.",
+        "Patients and clinics struggled with offline scheduling, delayed reports, and long clinic queues.",
       engineered:
-        "Engineered an omnichannel healthcare network with Next.js web portal and high-performance React Native Android/iOS apps, real-time doctor availability engine, encrypted diagnostic report vault, and sub-1.4s clinical directory search.",
-      result: "15,000+ patient consultations delivered with 99.9% booking reliability",
+        "A healthcare platform with a web portal and mobile app, real-time doctor availability, digital records, and quick clinic search.",
+      result: "Live healthcare platform with doctor booking and medical records",
       image: "/assets/projects/opentreatment-health.png",
       websiteUrl: "https://www.opentreatment.in/",
       stack: ["Next.js", "React Native", "Tailwind CSS", "Node.js", "PostgreSQL"],
     },
     {
       title: "Ember Events",
-      client: "Ember Events — Event Management Website",
-      industry: "Experiential Event & Wedding Management",
+      client: "Ember Events, event management website",
+      industry: "EVENTS & WEDDINGS",
       problem:
-        "Luxury event and wedding clients in Jaipur required an immersive visual showcase, high-resolution galleries, and dynamic inquiry forms without slowing down mobile performance.",
+        "An event planning company needed a website that shows off their weddings, corporate and social events beautifully, and turns visitors into enquiries, without being slow on mobile.",
       engineered:
-        "Engineered a high-performance event platform using React, Tailwind CSS, EmailJS automated lead capture, and Framer Motion smooth micro-animations.",
-      result: "120+ curated celebrations showcased with sub-second asset loads and 4.9 CSAT",
+        "A fast, visual website with event galleries, service pages and an enquiry form that sends leads straight to the team's inbox, plus smooth animations that keep it feeling premium.",
+      result: "Live website with galleries, service pages and instant enquiry capture",
       image: "/assets/projects/ember-events-exact.png",
       websiteUrl: "https://www.emberevents.in",
       stack: ["React", "Tailwind CSS", "EmailJS", "Framer Motion", "Vercel"],
     },
     {
       title: "Katan Saree",
-      client: "Katan Saree — E-Commerce Website",
-      industry: "Handcrafted Luxury D2C E-Commerce",
+      client: "Katan Saree, online saree store",
+      industry: "FASHION E-COMMERCE",
       problem:
-        "A luxury saree brand targeting global shoppers suffered from slow mobile LCP (> 4.8s) with heavy silk fabrics and high abandonment during multi-currency checkout.",
+        "A handcrafted silk saree brand needed an online store that does justice to their products: rich photos, easy browsing by collection, and a smooth checkout on mobile.",
       engineered:
-        "Built a high-performance, scalable e-commerce site with Next.js, React, Redux state management, Tailwind CSS, and Stripe global multi-currency payments.",
-      result: "3.4x mobile conversion jump, sub-second LCP, and zero checkout failures",
+        "A full e-commerce website with collections, product pages, wishlist, cart and online checkout, designed to keep high-quality product images fast on mobile.",
+      result: "Live online store with collections, cart and online payments",
       image: "/assets/projects/katan-saree-exact.jpg",
       websiteUrl: "https://katar-saree.vercel.app",
       stack: ["React", "Redux", "Tailwind CSS", "Stripe", "Next.js", "Express"],
     },
     {
       title: "Pick4U",
-      client: "Pick4U — Fast Reliable Local Deliveries",
-      industry: "Logistics & Intra-City On-Demand Delivery",
+      client: "Pick4U, local delivery platform",
+      industry: "LOCAL DELIVERY",
       problem:
-        "Traditional intra-city courier logistics suffered from unpredictable pickup dispatch times, lack of real-time GPS tracking for delivery partners, and high cancellation rates during peak delivery windows.",
+        "A local delivery business needed customers to book pickups online instead of calling, with clear pricing and the option to track their delivery.",
       engineered:
-        "Engineered an on-demand hyperlocal delivery platform with real-time route calculation, live driver partner dispatch, transparent pricing tiers (same-hour, same-day, scheduled), and instant parcel booking.",
-      result: "10K+ happy customers and 5K+ successful deliveries completed in under 30 minutes average time",
+        "A delivery booking platform with same-hour, same-day and scheduled delivery options, clear pricing, online booking, and login for customers.",
+      result: "Live booking platform for same-hour, same-day and scheduled deliveries",
       image: "/assets/projects/pick4u-exact.png",
       websiteUrl: "https://pick4u.vercel.app",
       stack: ["Next.js", "React", "Tailwind CSS", "Node.js", "Express", "Vercel"],
     },
     {
-      title: "Music Ed-Tech",
-      client: "Music Ed-Tech — Learning Platform",
-      industry: "Interactive Audio Education & EdTech",
+      title: "Music School",
+      client: "Music school, learning website",
+      industry: "EDUCATION",
       problem:
-        "Standard educational portals felt dry and clunky, failing to provide interactive music theory visualization, responsive audio playback, and fluid modern navigation.",
+        "A music school wanted a modern website that feels as creative as the music they teach, and makes it easy for students to explore courses and meet instructors.",
       engineered:
-        "Designed and developed an interactive music ed-tech web application with Next.js, TypeScript, Aceternity UI components, and Tailwind CSS for seamless audio exploration.",
-      result: "Interactive student learning experience with 98/100 Lighthouse performance and 4.95 CSAT",
+        "A modern, animated website with course pages, instructor profiles and contact options, designed and built from Figma to live site.",
+      result: "Live website showcasing courses and instructors",
       image: "/assets/projects/music-ed-tech-exact.png",
       websiteUrl: "https://music-ed-tech-beryl.vercel.app",
       stack: ["Next.js", "TypeScript", "Aceternity UI", "Tailwind CSS", "Figma"],
@@ -119,7 +119,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
   return (
     <section id="work" className="section-padding" style={{ position: "relative" }}>
       <div className="container-custom">
-        {/* Section Header with Sleek Auto-Scroll Controls (Replaces navbar-style tabs) */}
+        {/* Section Header with Sleek Auto-Scroll Controls */}
         <div
           style={{
             display: "flex",
@@ -142,10 +142,10 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
                 marginBottom: "8px",
               }}
             >
-              CASE STUDY
+              OUR WORK
             </div>
             <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.8rem)", fontWeight: 800 }}>
-              Selected deep dive.
+              Projects we&apos;ve built.
             </h2>
           </div>
 
@@ -250,7 +250,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
             position: "relative",
           }}
         >
-          {/* Left Column: Problem, Engineered, Result & Live Link */}
+          {/* Left Column: Problem, Built, Result & Live Link */}
           <div>
             <div style={{ marginBottom: "22px" }}>
               <div
@@ -290,7 +290,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
               </p>
             </div>
 
-            {/* WHAT WE ENGINEERED block */}
+            {/* WHAT WE BUILT block */}
             <div style={{ marginBottom: "22px" }}>
               <div
                 style={{
@@ -303,7 +303,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
                   marginBottom: "6px",
                 }}
               >
-                WHAT WE ENGINEERED
+                WHAT WE BUILT
               </div>
               <p style={{ color: "var(--text-body)", fontSize: "0.9375rem", lineHeight: 1.65 }}>
                 {current.engineered}
@@ -328,7 +328,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
               }}
             >
               <CheckCircle2 size={18} strokeWidth={2.5} />
-              <span>[ {current.result} ]</span>
+              <span>{current.result}</span>
             </div>
 
             {/* Tech Stack Pills */}
@@ -351,7 +351,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
               ))}
             </div>
 
-            {/* Live Website Link Only (Clean, single direct CTA) */}
+            {/* Live Website Link Only */}
             <div>
               {current.websiteUrl ? (
                 <a
@@ -403,7 +403,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
             </div>
           </div>
 
-          {/* Right Column: Clean Visual Showcase Window (Mock metrics, sparkline & fake URLs removed) */}
+          {/* Right Column: Clean Visual Showcase Window */}
           <div
             style={{
               position: "relative",
@@ -414,7 +414,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
               boxShadow: "var(--shadow-lg)",
             }}
           >
-            {/* Window Header Bar with traffic light dots only - NO URL TEXT */}
+            {/* Window Header Bar */}
             <div
               style={{
                 display: "flex",
@@ -442,7 +442,7 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
                   letterSpacing: "0.04em",
                 }}
               >
-                PRODUCTION SHOWCASE
+                LIVE
               </span>
             </div>
 

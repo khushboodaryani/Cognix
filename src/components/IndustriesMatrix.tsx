@@ -11,9 +11,9 @@ import {
   CheckCircle2,
   AlertTriangle,
   ArrowRight,
-  TrendingUp,
   Sparkles,
 } from "lucide-react";
+import { scrollToSection } from "@/utils/scroll";
 
 interface IndustriesMatrixProps {
   onOpenBooking: () => void;
@@ -25,129 +25,134 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
   const industries = [
     {
       id: "healthcare",
-      label: "Healthcare & MedTech",
+      label: "Healthcare & Clinics",
       icon: Stethoscope,
-      badge: "HIPAA & NDHM Ready",
-      headline: "Autonomous Clinical Intake & RAG Knowledge Workflows",
+      badge: "We built OpenTreatment",
+      headline: "Online booking, reminders and records for clinics",
       description:
-        "Replace manual intake paper trails and patient charting delays with secure, verified clinical automation.",
+        "Help patients find you, book easily and come back, without your staff living on the phone.",
       painPoints: [
-        "Clinicians spending 3+ hours daily on repetitive EHR/EMR data entry.",
-        "Patient inquiry bottlenecks outside clinical operating hours.",
-        "Human errors in intake questionnaires and insurance document routing.",
+        "Patients calling again and again to ask prices and timings.",
+        "Appointment reminders sent by hand, or not at all.",
+        "Reports and prescriptions scattered across WhatsApp and paper.",
       ],
       solutions: [
-        "HIPAA-compliant WhatsApp triage agents with sub-second response times.",
-        "Clinical RAG search indexing hospital protocols and doctor directories.",
-        "Deterministic document parsing directly syncing patient cards to EHR.",
+        "Online booking with clear prices and available slots.",
+        "Automatic WhatsApp confirmations and reminders.",
+        "Simple digital records and prescriptions patients can download.",
       ],
-      roi: "15+ hrs saved / week per clinician · 100% intake compliance",
-      tags: ["HIPAA Encryption", "EHR Sync", "LlamaIndex", "Secure LLM Gateway"],
+      roi: "Fewer calls at the front desk, fewer no-shows, and patients who trust your prices. We've built this before: OpenTreatment, a healthcare platform live on the web and Google Play.",
+      tags: ["Online booking", "WhatsApp reminders", "Patient records", "Android app"],
+      buttonText: "Talk to us about your clinic",
     },
     {
       id: "ecommerce",
       label: "E-Commerce & Retail",
       icon: ShoppingBag,
-      badge: "+38% Recovered GMV",
-      headline: "Headless Storefronts & Autonomous Retention Engines",
+      badge: "WhatsApp-first",
+      headline: "A faster store and order updates that send themselves",
       description:
-        "Eliminate checkout abandonment and inventory sync delays across multi-channel retail operations.",
+        'Sell more on mobile and stop answering "where is my order?" all day.',
       painPoints: [
-        "Cart abandonment rates exceeding 70% with standard email recovery failing.",
-        "Delayed stock inventory sync between Shopify, Amazon, and ERP warehouses.",
-        "Customer support teams overwhelmed by 'Where is my order?' queries.",
+        "Slow website that loses shoppers on mobile.",
+        "Customers messaging all day to ask about their order.",
+        "Orders copied into Tally or Excel by hand.",
       ],
       solutions: [
-        "Automated WhatsApp interactive checkout and abandoned cart re-engagement.",
-        "Sub-second multi-warehouse inventory webhooks via custom microservices.",
-        "Autonomous tracking & returns bot handling 85% of tier-1 support tickets.",
+        "Fast, mobile-first online store with UPI checkout.",
+        "Automatic WhatsApp updates for order, shipping and delivery.",
+        "Orders synced straight into your accounting.",
       ],
-      roi: "+38% recovered checkout GMV · 85% autonomous ticket resolution",
-      tags: ["Shopify Headless", "WhatsApp Cloud API", "Razorpay / UPI", "Inventory Webhooks"],
+      roi: "A smoother buying experience for customers, fewer support messages, and no more manual order entry.",
+      tags: ["Online store", "UPI checkout", "WhatsApp updates", "Tally sync"],
+      buttonText: "Talk to us about your store",
     },
     {
       id: "b2b",
-      label: "B2B & Enterprise Services",
+      label: "B2B & Services",
       icon: Building2,
-      badge: "< 45s Response Time",
-      headline: "Inbound Lead Qualification & Zero-Touch SDR Pipelines",
-      description:
-        "Never let a qualified enterprise buyer wait. Qualify, enrich, and stage prospect meetings in real time.",
+      badge: "Less admin",
+      headline: "Quotes, follow-ups and client updates on autopilot",
+      description: "Spend your time on clients, not on paperwork.",
       painPoints: [
-        "Average B2B lead response delay of 4+ hours, bleeding qualified deals.",
-        "SDRs bogged down in repetitive manual CRM data entry and LinkedIn research.",
-        "Disconnected tech stacks causing lead drop-off between form and calendar.",
+        "Quotes and invoices made manually every time.",
+        "Follow-ups forgotten, so good leads go cold.",
+        "Client updates spread across emails and chats.",
       ],
       solutions: [
-        "Event-driven webhooks triggering instant AI enrichment and ICP scoring.",
-        "Autonomous conversational booking agents locking meetings on sales calendars.",
-        "Bi-directional synchronization across HubSpot, Zoho CRM, and Slack alerts.",
+        "Quote and invoice templates that fill themselves.",
+        "Automatic follow-up reminders for every lead.",
+        "A simple client portal or dashboard for updates.",
       ],
-      roi: "Lead response dropped from 4 hours to 45 seconds · +140% qualified demos",
-      tags: ["HubSpot API", "Zoho CRM", "Instant Enrichment", "Slack Notifications"],
+      roi: "Faster quotes, no lost leads, and clients who always know where their work stands.",
+      tags: ["Lead tracking", "Auto invoices", "Client portal", "Zoho / Sheets"],
+      buttonText: "Talk to us about your business",
     },
     {
       id: "finance",
       label: "Finance & Accounting",
       icon: Receipt,
-      badge: "99.8% Touchless Entry",
-      headline: "Deterministic Reconciliation & GST / Tally Automation",
+      badge: "No copy-paste",
+      headline: "Bills and documents read and filed automatically",
       description:
-        "Turn tedious month-end ledger reconciliation into automated, audit-proof background pipelines.",
+        "Let AI handle the boring data entry so your team can focus on the numbers.",
       painPoints: [
-        "Manual reconciliation of thousands of bank statements and gateway logs.",
-        "Typing invoice line-items into Tally / Zoho causing compliance errors.",
-        "Delayed visibility into daily cash flows and outstanding receivables.",
+        "Invoices and bills typed in by hand.",
+        "Payment reminders sent manually, or forgotten.",
+        "Data spread across Excel, Tally and email.",
       ],
       solutions: [
-        "Multi-bank statement OCR parser with deterministic ledger categorization.",
-        "Automated Tally Prime & Zoho Books API sync with zero manual re-entry.",
-        "Automated payment reminder workflows via WhatsApp and email.",
+        "AI that reads invoices and bills and pulls out the details.",
+        "Automatic payment reminders on WhatsApp and email.",
+        "Data synced between your tools in one place.",
       ],
-      roi: "99.8% touchless ledger entry · 4x faster month-end financial closing",
-      tags: ["Tally Prime API", "Bank Statement OCR", "GST Ledger Automation", "Audit Trails"],
+      roi: "Less manual typing, fewer errors, and payments that come in on time.",
+      tags: ["Invoice reading", "Payment reminders", "Tally sync", "Google Sheets"],
+      buttonText: "Talk to us about your accounts",
     },
     {
       id: "hospitality",
       label: "Hospitality & Real Estate",
       icon: Hotel,
-      badge: "Zero Missed Inquiries",
-      headline: "24/7 Reservation Hubs & Interactive Brochure Agents",
+      badge: "24/7 replies",
+      headline: "Instant replies to every enquiry, even at night",
       description:
-        "Capture weekend property buyers and diners when human staff are off-duty.",
+        "Never lose a booking or a buyer because nobody replied in time.",
       painPoints: [
-        "Over 60% of high-intent property and dining inquiries occur after 7 PM.",
-        "Staff wasting hours emailing brochures and answering price questions.",
-        "Double-booking friction and delayed site visit scheduling.",
+        "Leads from ads going cold before anyone replies.",
+        "The same questions about rooms, prices or properties, all day.",
+        "Bookings and site visits tracked on paper or WhatsApp.",
       ],
       solutions: [
-        "Omnichannel WhatsApp concierge answering floor plans, pricing, and rules.",
-        "Instant dynamic PDF brochure generation tailored to buyer preferences.",
-        "Autonomous site visit booking syncing directly to property agent calendars.",
+        "AI assistant on WhatsApp that answers common questions instantly.",
+        "Simple booking and site-visit scheduling.",
+        "Lead tracker so your team knows who to call next.",
       ],
-      roi: "+150% after-hours inquiry capture · 100% calendar sync accuracy",
-      tags: ["Dynamic PDF Generation", "WhatsApp Concierge", "Google Calendar API", "Instant Maps"],
+      roi: "Every enquiry gets a reply in seconds, and your team only talks to people who are ready.",
+      tags: ["WhatsApp AI", "Booking system", "Lead tracker", "Website"],
+      buttonText: "Talk to us about your property business",
     },
     {
       id: "logistics",
       label: "Logistics & Supply Chain",
       icon: Truck,
-      badge: "65% Lower Dispatch Cost",
-      headline: "Automated Dispatch Alerts & Proof-of-Delivery OCR",
+      badge: "Live tracking",
+      headline: "Delivery updates and proof of delivery, without the paperwork",
       description:
-        "Streamline fleet coordination, paper bill-of-lading processing, and customer tracking.",
+        "Keep customers informed automatically and stop chasing drivers for updates.",
       painPoints: [
-        "Customer call centers overwhelmed by manual delivery status check calls.",
-        "Physical paper proof-of-delivery receipts lost or damaged in transit.",
-        "Manual driver allocation causing dispatch delays and fuel wastage.",
+        "Customers calling to ask where their delivery is.",
+        "Paper delivery receipts getting lost or damaged.",
+        "Drivers and dispatch coordinated over calls and chats.",
       ],
       solutions: [
-        "Automated WhatsApp live tracking links pushed at every checkpoint.",
-        "Instant driver mobile upload with automatic OCR validation of POD stamps.",
-        "Centralized telemetry dashboard monitoring vehicle milestones in real time.",
+        "Automatic WhatsApp tracking updates at each step.",
+        "Simple driver app to upload proof of delivery photos.",
+        "One dashboard to see every delivery's status.",
       ],
-      roi: "65% reduction in dispatch overhead · Sub-minute proof-of-delivery filing",
-      tags: ["Fleet Telemetry", "Stamp OCR", "Live Tracking Webhooks", "Driver PWA"],
+      roi: 'Fewer "where is it?" calls, no lost receipts, and a clear view of every delivery.',
+      tags: ["WhatsApp tracking", "Driver app", "Delivery photos", "Dashboard"],
+      buttonText: "Talk to us about your deliveries",
     },
   ];
 
@@ -170,7 +175,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
               marginBottom: "10px",
             }}
           >
-            INDUSTRIES WE TRANSFORM
+            WHO WE HELP
           </div>
           <h2
             style={{
@@ -181,7 +186,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
               marginBottom: "16px",
             }}
           >
-            Custom workflow automation tailored to sector-specific bottlenecks.
+            Built around how your business actually works.
           </h2>
           <p
             style={{
@@ -190,7 +195,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
               lineHeight: 1.6,
             }}
           >
-            We don&apos;t build generic AI gimmicks. We engineer mission-critical systems that solve the exact operational pain points holding back your revenue.
+            Every industry has its own headaches. Here&apos;s how we help some of them.
           </p>
         </div>
 
@@ -377,7 +382,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
                 {current.description}
               </p>
 
-              {/* Two Column Grid: Pain Points vs Engineered Solutions */}
+              {/* Two Column Grid: Common Problems vs What We Build */}
               <div
                 style={{
                   display: "grid",
@@ -387,7 +392,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
                 }}
                 className="pain-solution-grid"
               >
-                {/* Pain Points */}
+                {/* Common Problems */}
                 <div
                   style={{
                     padding: "20px",
@@ -411,7 +416,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
                     }}
                   >
                     <AlertTriangle size={16} />
-                    <span>Sector Bottlenecks</span>
+                    <span>Common Problems</span>
                   </div>
                   <ul
                     style={{
@@ -442,7 +447,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
                   </ul>
                 </div>
 
-                {/* Engineered Solutions */}
+                {/* What We Build */}
                 <div
                   style={{
                     padding: "20px",
@@ -466,7 +471,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
                     }}
                   >
                     <CheckCircle2 size={16} style={{ color: "#84CC16" }} />
-                    <span>Cognixs Engineered Solution</span>
+                    <span>What We Build</span>
                   </div>
                   <ul
                     style={{
@@ -501,7 +506,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
                 </div>
               </div>
 
-              {/* Quantified Impact Banner */}
+              {/* What Changes For You Box */}
               <div
                 style={{
                   padding: "16px 20px",
@@ -527,7 +532,7 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
                     flexShrink: 0,
                   }}
                 >
-                  <TrendingUp size={16} strokeWidth={2.5} />
+                  <CheckCircle2 size={16} strokeWidth={2.5} />
                 </div>
                 <div>
                   <div
@@ -537,16 +542,18 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
                       color: "var(--text-muted)",
                       fontWeight: 600,
                       textTransform: "uppercase",
+                      marginBottom: "2px",
                     }}
                   >
-                    PROVEN PRODUCTION OUTCOME
+                    WHAT CHANGES FOR YOU
                   </div>
                   <div
                     style={{
                       fontFamily: "var(--font-display)",
                       fontSize: "0.9375rem",
-                      fontWeight: 700,
+                      fontWeight: 600,
                       color: "var(--text-heading)",
+                      lineHeight: 1.5,
                     }}
                   >
                     {current.roi}
@@ -587,19 +594,26 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
                 ))}
               </div>
 
-              <button
-                onClick={onOpenBooking}
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("contact");
+                }}
                 className="btn-primary"
-                type="button"
                 style={{
                   padding: "10px 20px",
                   fontSize: "0.875rem",
                   gap: "8px",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  cursor: "pointer",
                 }}
               >
-                <span>Automate Your {current.label.split(" ")[0]} Stack</span>
+                <span>{current.buttonText}</span>
                 <ArrowRight size={15} />
-              </button>
+              </a>
             </div>
           </div>
         </div>

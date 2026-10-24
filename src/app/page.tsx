@@ -63,14 +63,14 @@ export default function Home() {
         {/* Live Automation Pipeline Visualizer (Interactive Showpiece) */}
         <AutomationVisualizer />
 
-        {/* Sector-Specific Bottlenecks & Solutions (Inspired by Apitide Industry Breakdown) */}
-        <IndustriesMatrix onOpenBooking={() => setIsBookingOpen(true)} />
-
-        {/* Selected Deep Dive Case Studies with Real-Time Telemetry */}
+        {/* Selected Deep Dive Case Studies with Real-Time Telemetry (Work section) */}
         <SelectedDeepDive onOpenBooking={() => setIsBookingOpen(true)} />
 
         {/* Proven Outcomes in Production (6 Bento Cards & Filters) */}
         <ProvenOutcomes onOpenBooking={() => setIsBookingOpen(true)} />
+
+        {/* Sector-Specific Bottlenecks & Solutions (Inspired by Apitide Industry Breakdown) */}
+        <IndustriesMatrix onOpenBooking={() => setIsBookingOpen(true)} />
 
         {/* The Old Way vs The Cognixs Studio Model (High-Contrast Comparison) */}
         <ComparisonMatrix onOpenBooking={() => setIsBookingOpen(true)} />

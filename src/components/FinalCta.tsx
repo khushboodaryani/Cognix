@@ -13,7 +13,7 @@ export default function FinalCta({ onOpenBooking }: FinalCtaProps) {
   };
 
   return (
-    <section className="section-padding" style={{ position: "relative" }}>
+    <section id="contact" className="section-padding" style={{ position: "relative" }}>
       <div className="container-custom">
         {/* Dark Obsidian Hero Block Matching Screenshot 3 */}
         <div
