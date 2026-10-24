@@ -60,9 +60,10 @@ export default function ValueProposition() {
 
         {/* 4 Cards Grid Matching Screenshot 3 */}
         <div
+          className="value-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))",
             gap: "24px",
           }}
         >
@@ -71,7 +72,7 @@ export default function ValueProposition() {
             return (
               <div
                 key={item.title}
-                className="studio-card"
+                className="studio-card value-card"
                 style={{
                   padding: "32px 24px",
                   display: "flex",
@@ -120,6 +121,16 @@ export default function ValueProposition() {
           })}
         </div>
       </div>
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .value-grid {
+            gap: 16px !important;
+          }
+          :global(.value-card) {
+            padding: 20px 16px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

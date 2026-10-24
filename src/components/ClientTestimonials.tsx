@@ -56,16 +56,17 @@ export default function ClientTestimonials() {
 
         {/* 3 Review Cards */}
         <div
+          className="testimonials-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
             gap: "24px",
           }}
         >
           {testimonials.map((item, idx) => (
             <div
               key={idx}
-              className="studio-card"
+              className="studio-card testimonial-card"
               style={{
                 padding: "32px",
                 display: "flex",
@@ -133,6 +134,16 @@ export default function ClientTestimonials() {
           ))}
         </div>
       </div>
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .testimonials-grid {
+            gap: 16px !important;
+          }
+          :global(.testimonial-card) {
+            padding: 20px 16px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

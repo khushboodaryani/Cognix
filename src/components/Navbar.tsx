@@ -50,6 +50,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         width: "100%",
         padding: "0 16px",
       }}
+      className="nav-header-wrapper"
     >
       <div
         style={{
@@ -126,22 +127,23 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         </nav>
 
         {/* Right CTA & Controls */}
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }} className="nav-right-controls">
           <ThemeToggle />
 
           <a
             href="https://wa.me/916396880866?text=Hi%20Cognixs!%20I%20want%20to%20start%20a%20new%20project%20(Website%20/%20App%20/%20AI%20Automation).%20Let's%20discuss%20requirements%20and%20timeline."
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-dark"
+            className="btn-dark nav-cta-btn"
             style={{
-              padding: "9px 18px",
+              padding: "8px 18px",
               fontSize: "0.85rem",
               borderRadius: "9999px",
               display: "inline-flex",
               alignItems: "center",
               gap: "6px",
               textDecoration: "none",
+              whiteSpace: "nowrap",
             }}
           >
             <span>Start a project</span>
@@ -261,6 +263,22 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         @media (max-width: 767px) {
           .mobile-menu-btn {
             display: inline-flex !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .nav-cta-btn {
+            display: none !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .nav-header-wrapper {
+            padding: 0 10px !important;
+          }
+          .nav-container {
+            padding: 8px 14px !important;
+          }
+          .nav-right-controls {
+            gap: 6px !important;
           }
         }
       `}</style>

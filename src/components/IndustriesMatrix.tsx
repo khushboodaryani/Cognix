@@ -290,9 +290,9 @@ export default function IndustriesMatrix({ onOpenBooking }: IndustriesMatrixProp
 
           {/* Right Active Industry Details Bento Card */}
           <div
-            className="studio-card"
+            className="studio-card industry-detail-card"
             style={{
-              padding: "36px",
+              padding: "clamp(18px, 4vw, 36px)",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",

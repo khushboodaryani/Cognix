@@ -14,7 +14,7 @@ export default function TermsClient() {
       {/* Global Navigation Header */}
       <Navbar onOpenBooking={() => setIsBookingOpen(true)} />
 
-      <main style={{ flex: 1, padding: "48px 24px 96px" }}>
+      <main style={{ flex: 1, padding: "clamp(32px, 5vw, 48px) clamp(16px, 4vw, 24px) clamp(64px, 8vw, 96px)" }}>
         <div style={{ maxWidth: "760px", margin: "0 auto" }}>
           {/* Top Header */}
           <div style={{ marginBottom: "40px" }}>
@@ -270,6 +270,11 @@ export default function TermsClient() {
         }
         .legal-content strong {
           color: var(--text-heading);
+        }
+        @media (max-width: 480px) {
+          .legal-content ul {
+            padding-left: 18px !important;
+          }
         }
       `}</style>
     </div>

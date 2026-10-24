@@ -484,6 +484,12 @@ export default function SelectedDeepDive({ onOpenBooking }: DeepDiveProps) {
             padding: 24px !important;
           }
         }
+        @media (max-width: 600px) {
+          :global(.deep-dive-card) {
+            padding: 18px 14px !important;
+            gap: 20px !important;
+          }
+        }
       `}</style>
     </section>
   );

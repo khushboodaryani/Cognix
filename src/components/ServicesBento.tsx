@@ -169,6 +169,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
         {/* SERVICES GRID */}
         {/* ========================================================================= */}
         <div
+          className="services-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(12, 1fr)",
@@ -180,7 +181,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
           {/* ----------------------------------------------------------------------- */}
           {(activeTab === "all" || activeTab === "ai") && (
             <div
-              className="studio-card service-col-7"
+              className="studio-card service-card service-col-7"
               style={{
                 gridColumn: "span 7",
                 padding: "30px",
@@ -317,7 +318,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
           {/* ----------------------------------------------------------------------- */}
           {(activeTab === "all" || activeTab === "ai") && (
             <div
-              className="studio-card service-col-5"
+              className="studio-card service-card service-col-5"
               style={{
                 gridColumn: "span 5",
                 padding: "30px",
@@ -437,7 +438,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
           {/* ----------------------------------------------------------------------- */}
           {(activeTab === "all" || activeTab === "ai") && (
             <div
-              className="studio-card service-col-6"
+              className="studio-card service-card service-col-6"
               style={{
                 gridColumn: "span 6",
                 padding: "30px",
@@ -529,7 +530,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
           {/* ----------------------------------------------------------------------- */}
           {(activeTab === "all" || activeTab === "ai") && (
             <div
-              className="studio-card service-col-6"
+              className="studio-card service-card service-col-6"
               style={{
                 gridColumn: "span 6",
                 padding: "30px",
@@ -621,7 +622,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
           {/* ----------------------------------------------------------------------- */}
           {(activeTab === "all" || activeTab === "engineering") && (
             <div
-              className="studio-card service-col-7"
+              className="studio-card service-card service-col-7"
               style={{
                 gridColumn: "span 7",
                 padding: "30px",
@@ -711,7 +712,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
           {/* ----------------------------------------------------------------------- */}
           {(activeTab === "all" || activeTab === "engineering") && (
             <div
-              className="studio-card service-col-5"
+              className="studio-card service-card service-col-5"
               style={{
                 gridColumn: "span 5",
                 padding: "30px",
@@ -800,7 +801,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
           {/* ----------------------------------------------------------------------- */}
           {(activeTab === "all" || activeTab === "automation") && (
             <div
-              className="studio-card service-col-6"
+              className="studio-card service-card service-col-6"
               style={{
                 gridColumn: "span 6",
                 padding: "30px",
@@ -889,7 +890,7 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
           {/* ----------------------------------------------------------------------- */}
           {(activeTab === "all" || activeTab === "support") && (
             <div
-              className="studio-card service-col-6"
+              className="studio-card service-card service-col-6"
               style={{
                 gridColumn: "span 6",
                 padding: "30px",
@@ -1092,10 +1093,19 @@ export default function ServicesBento({ onOpenBooking }: ServicesBentoProps) {
 
       <style jsx>{`
         @media (max-width: 900px) {
+          .services-grid {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
           .service-col-7,
           .service-col-5,
           .service-col-6 {
-            grid-column: span 12 !important;
+            grid-column: span 1 !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .service-card {
+            padding: 20px 16px !important;
           }
         }
       `}</style>

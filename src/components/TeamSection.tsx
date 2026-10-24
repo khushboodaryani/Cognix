@@ -168,6 +168,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
             <div>
               {/* Profile Top Row */}
               <div
+                className="team-profile-top"
                 style={{
                   display: "flex",
                   alignItems: "flex-start",
@@ -313,6 +314,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
             <div>
               {/* Profile Top Row */}
               <div
+                className="team-profile-top"
                 style={{
                   display: "flex",
                   alignItems: "flex-start",
@@ -600,6 +602,18 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
           :global(.team-stats-strip .pill-badge) {
             justify-content: center !important;
             width: 100% !important;
+          }
+        }
+        @media (max-width: 600px) {
+          :global(.team-card) {
+            padding: 22px 18px !important;
+          }
+        }
+        @media (max-width: 440px) {
+          :global(.team-profile-top) {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 14px !important;
           }
         }
       `}</style>

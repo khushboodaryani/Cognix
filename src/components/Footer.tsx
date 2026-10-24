@@ -63,7 +63,7 @@ export default function Footer() {
               <a
                 href="mailto:work.cognixs@gmail.com"
                 style={{
-                  fontSize: "1.0625rem",
+                  fontSize: "clamp(0.9375rem, 3.5vw, 1.0625rem)",
                   fontWeight: 600,
                   color: "var(--text-heading)",
                   textDecoration: "underline",
@@ -71,6 +71,7 @@ export default function Footer() {
                   textDecorationThickness: "1.5px",
                   transition: "opacity 0.2s ease",
                   display: "inline-block",
+                  wordBreak: "break-all",
                 }}
                 className="footer-email-link"
               >

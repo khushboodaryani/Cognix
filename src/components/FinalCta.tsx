@@ -92,6 +92,7 @@ export default function FinalCta({ onOpenBooking }: FinalCtaProps) {
 
             {/* CTA Buttons */}
             <div
+              className="final-cta-btn-group"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -170,6 +171,19 @@ export default function FinalCta({ onOpenBooking }: FinalCtaProps) {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        @media (max-width: 480px) {
+          .final-cta-btn-group {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          .final-cta-btn-group a,
+          .final-cta-btn-group button {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

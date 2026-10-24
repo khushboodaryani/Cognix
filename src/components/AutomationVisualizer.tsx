@@ -332,12 +332,13 @@ export default function AutomationVisualizer() {
 
         {/* Full-Width Pricing & Scoping Highlight Box */}
         <div
+          className="pricing-box-wrap"
           style={{
             marginTop: "36px",
             display: "flex",
             alignItems: "center",
-            gap: "16px",
-            padding: "16px 24px",
+            gap: "14px",
+            padding: "clamp(14px, 3vw, 20px) clamp(14px, 3vw, 24px)",
             borderRadius: "16px",
             backgroundColor: "var(--bg-card)",
             border: "1px solid var(--border-subtle)",
@@ -359,7 +360,6 @@ export default function AutomationVisualizer() {
               fontSize: "0.8rem",
               fontWeight: 800,
               letterSpacing: "0.03em",
-              whiteSpace: "nowrap",
             }}
           >
             PRICED FOR YOUR PROJECT
@@ -370,7 +370,8 @@ export default function AutomationVisualizer() {
               color: "var(--text-body)",
               lineHeight: 1.55,
               flex: 1,
-              minWidth: "280px",
+              minWidth: 0,
+              width: "100%",
             }}
           >
             Clear, fixed quotes. Every business needs something different, so we don&apos;t do one-size-fits-all pricing. Tell us what you need on a free 20-minute call, and you&apos;ll get a fixed quote with clear milestones. No hidden charges, no surprise invoices.{" "}

@@ -60,9 +60,10 @@ export default function PredictableCadence() {
 
         {/* 4 Steps Horizontal Flow */}
         <div
+          className="cadence-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
             gap: "24px",
             position: "relative",
           }}
@@ -74,7 +75,7 @@ export default function PredictableCadence() {
             return (
               <div
                 key={item.step}
-                className="studio-card"
+                className="studio-card cadence-card"
                 style={{
                   padding: "28px",
                   display: "flex",
@@ -155,6 +156,16 @@ export default function PredictableCadence() {
           })}
         </div>
       </div>
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .cadence-grid {
+            gap: 16px !important;
+          }
+          :global(.cadence-card) {
+            padding: 20px 16px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

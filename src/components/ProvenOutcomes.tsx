@@ -210,9 +210,10 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
 
         {/* 6 Bento Outcome Cards in 3x2 Grid */}
         <div
+          className="outcomes-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
             gap: "24px",
           }}
         >
@@ -221,7 +222,7 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
             return (
               <div
                 key={item.title}
-                className="studio-card"
+                className="studio-card outcome-card"
                 onClick={onOpenBooking}
                 style={{
                   padding: "28px",
@@ -361,6 +362,17 @@ export default function ProvenOutcomes({ onOpenBooking }: ProvenOutcomesProps) {
           })}
         </div>
       </div>
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .outcomes-grid {
+            gap: 16px !important;
+          }
+          :global(.outcome-card) {
+            padding: 20px 16px !important;
+            min-height: auto !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

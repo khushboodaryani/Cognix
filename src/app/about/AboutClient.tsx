@@ -58,8 +58,9 @@ function ProfileAvatar({
   return (
     <div
       style={{
-        width: "clamp(220px, 28vw, 280px)",
-        height: "clamp(220px, 28vw, 280px)",
+        width: "clamp(160px, 45vw, 280px)",
+        height: "clamp(160px, 45vw, 280px)",
+        maxWidth: "100%",
         borderRadius: "28px",
         border: "2px solid var(--accent-primary)",
         boxShadow: "0 0 0 4px rgba(199, 243, 107, 0.22)",
@@ -259,7 +260,7 @@ export default function AboutClient() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
                 gap: "clamp(36px, 5vw, 64px)",
                 alignItems: "center",
               }}
@@ -450,7 +451,7 @@ export default function AboutClient() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
                 gap: "24px",
               }}
             >
@@ -586,7 +587,7 @@ export default function AboutClient() {
                   padding: "clamp(28px, 4vw, 44px)",
                   boxShadow: "var(--shadow-sm)",
                 }}
-                className="profile-row profile-row-normal"
+                className="profile-card profile-row profile-row-normal"
               >
                 <div className="profile-photo-col">
                   <ProfileAvatar
@@ -756,7 +757,7 @@ export default function AboutClient() {
                   padding: "clamp(28px, 4vw, 44px)",
                   boxShadow: "var(--shadow-sm)",
                 }}
-                className="profile-row profile-row-reverse"
+                className="profile-card profile-row profile-row-reverse"
               >
                 <div className="profile-photo-col">
                   <ProfileAvatar
@@ -843,9 +844,7 @@ export default function AboutClient() {
                     <p>
                       He also leads tech at OpenTreatment, a healthcare platform
                       that helps patients compare doctors, hospitals and labs by
-                      price, live on the web and on Google Play. When he&apos;s
-                      not coding, you&apos;ll usually find him on a Himalayan
-                      trek.
+                      price, live on the web and on Google Play. 
                     </p>
                   </div>
 
@@ -1170,7 +1169,7 @@ export default function AboutClient() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
                 gap: "20px",
               }}
             >
@@ -1478,6 +1477,12 @@ export default function AboutClient() {
           .profile-photo-col {
             width: 100%;
             justifyContent: flex-start;
+          }
+        }
+        @media (max-width: 600px) {
+          .profile-card {
+            padding: 20px 16px !important;
+            border-radius: 20px !important;
           }
         }
       `}</style>
