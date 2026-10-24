@@ -18,7 +18,7 @@ export default function IntegrationStack() {
       name: "Logistics & Supply Chain",
       bottleneck: "Manual dispatch calls, paper delivery challans, zero real-time visibility for end buyers.",
       engineered: "Automated Dunzo/Shiprocket carrier routing, live GPS tracking webhooks, automated Tally GST invoice.",
-      roi: "85,000+ autonomous monthly dispatches with 99.4% SLA.",
+      roi: "Automated monthly parcel dispatches with high operational uptime.",
       stack: ["Node.js", "Tally Prime", "PostgreSQL", "WhatsApp API"],
     },
     {

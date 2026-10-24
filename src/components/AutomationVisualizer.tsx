@@ -13,7 +13,7 @@ export default function AutomationVisualizer() {
       id: 0,
       title: "1. Lead Capture",
       app: "Landing Page",
-      latency: "12ms",
+      stage: "Immediate",
       status: "200 OK",
       detail: "Webhook triggers on client form submission with verified UTM tags and Indian phone number formatting.",
       payload: '{ "name": "Vikram Sethi", "phone": "+91 98201...", "interest": "D2C Architecture", "intent_score": 0.94 }',
@@ -22,7 +22,7 @@ export default function AutomationVisualizer() {
       id: 1,
       title: "2. Zoho CRM",
       app: "Auto Ingest",
-      latency: "45ms",
+      stage: "Synced",
       status: "Synced",
       detail: "Lead created and tagged automatically without manual data entry. Duplicate detection passed.",
       payload: '{ "lead_id": "ZH-88192", "owner": "Enterprise Sales", "stage": "AI Verification" }',
@@ -31,7 +31,7 @@ export default function AutomationVisualizer() {
       id: 2,
       title: "3. OpenAI GPT-4o",
       app: "AI Qualification",
-      latency: "148ms",
+      stage: "Evaluated",
       status: "Evaluated",
       detail: "LLM evaluates project urgency, budget parameters, and prepares a tailored scoping agenda.",
       payload: '{ "priority": "CRITICAL", "intent": "Shopify migration to Next.js", "sentiment": "High Urgency" }',
@@ -40,16 +40,16 @@ export default function AutomationVisualizer() {
       id: 3,
       title: "4. WhatsApp Cloud",
       app: "Instant Outreach",
-      latency: "92ms",
+      stage: "Delivered",
       status: "Delivered",
       detail: "Trigger verified Meta Business WhatsApp template with interactive calendar booking buttons.",
-      payload: '{ "template": "founder_welcome_v2", "status": "READ", "response_time": "1.4s" }',
+      payload: '{ "template": "founder_welcome_v2", "status": "READ", "delivery_status": "DELIVERED" }',
     },
     {
       id: 4,
       title: "5. Tally Prime",
       app: "Auto GST & Voucher",
-      latency: "80ms",
+      stage: "Generated",
       status: "Generated",
       detail: "Direct XML/ODBC sync into Tally Prime creating a preliminary project ledger and GST quotation.",
       payload: '{ "voucher_type": "Sales Proforma", "gstin": "27AAACG0000A1Z5", "status": "READY" }',
@@ -58,7 +58,7 @@ export default function AutomationVisualizer() {
       id: 5,
       title: "6. Slack Dispatch",
       app: "Internal Ops Alert",
-      latency: "35ms",
+      stage: "Dispatched",
       status: "Dispatched",
       detail: "Engineering leads notified with interactive 1-click accept / assign buttons in #war-room.",
       payload: '{ "channel": "#lead-dispatches", "team_notified": ["@lead_architect", "@founder"] }',
@@ -205,7 +205,7 @@ export default function AutomationVisualizer() {
                         color: "var(--text-muted)",
                       }}
                     >
-                      {node.latency}
+                      {node.stage}
                     </span>
                     <span
                       style={{
@@ -294,9 +294,9 @@ export default function AutomationVisualizer() {
               {nodes[selectedNode].detail}
             </p>
             <div style={{ display: "flex", gap: "12px", fontSize: "0.8125rem", color: "var(--text-muted)" }}>
-              <span>Execution: <strong style={{ color: "var(--text-heading)" }}>{nodes[selectedNode].latency}</strong></span>
+              <span>Stage: <strong style={{ color: "var(--text-heading)" }}>{nodes[selectedNode].stage}</strong></span>
               <span>·</span>
-              <span>Reliability: <strong style={{ color: "#16A34A" }}>100% Idempotent</strong></span>
+              <span>Delivery: <strong style={{ color: "#16A34A" }}>Verified Idempotent</strong></span>
             </div>
           </div>
 

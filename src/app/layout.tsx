@@ -76,9 +76,13 @@ export const metadata: Metadata = {
     canonical: "https://cognixs.in",
   },
   icons: {
-    icon: "/assets/logo/logo-mark.svg",
+    icon: [
+      { url: "/assets/logo/logo-mark.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
     shortcut: "/assets/logo/logo-mark.svg",
-    apple: "/assets/logo/logo-mark.svg",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -145,6 +149,9 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href="/assets/logo/logo-mark.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

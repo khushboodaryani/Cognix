@@ -19,7 +19,7 @@ export default function ComparisonMatrix({ onOpenBooking }: ComparisonMatrixProp
       dimension: "Lead & Customer Support",
       subtext: "How inbound interest is handled",
       oldWay: "Slow support ticket backlogs, 4+ hour SDR delays, and weekend coverage voids.",
-      cognixsWay: "Autonomous AI agents resolving questions and qualifying leads in under 800ms 24/7.",
+      cognixsWay: "Autonomous AI agents instantly resolving questions and qualifying leads 24/7.",
     },
     {
       dimension: "Delivery Velocity",

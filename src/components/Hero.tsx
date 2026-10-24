@@ -152,9 +152,9 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           }}
         >
           <Activity size={14} style={{ color: "#22C55E" }} />
-          <span>Live Ops: <strong style={{ color: "var(--text-heading)" }}>99.4% automated uptime</strong></span>
+          <span>Production Ops: <strong style={{ color: "var(--text-heading)" }}>Verified Uptime</strong></span>
           <span style={{ opacity: 0.3 }}>|</span>
-          <span><strong style={{ color: "var(--text-heading)" }}>+42 hrs/mo</strong> saved per client</span>
+          <span><strong style={{ color: "var(--text-heading)" }}>~15-20 hrs/wk</strong> saved per client</span>
         </div>
 
         {/* Fanned Multi-Device UI Mockups */}
@@ -666,13 +666,13 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                       }}
                     >
                       <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "4px" }}>
-                        Avg Response Latency
+                        System Status
                       </div>
-                      <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-heading)", fontFamily: "var(--font-mono)" }}>
-                        142 ms
+                      <div style={{ fontSize: "1.4rem", fontWeight: 700, color: "var(--text-heading)", fontFamily: "var(--font-mono)" }}>
+                        Operational
                       </div>
                       <div style={{ fontSize: "0.75rem", color: "#16A34A", display: "flex", alignItems: "center", gap: "4px", marginTop: "4px" }}>
-                        <CheckCircle2 size={12} /> 99.98% SLA Guaranteed
+                        <CheckCircle2 size={12} /> Active Telemetry
                       </div>
                     </div>
 
